@@ -1,0 +1,24 @@
+{
+  "ru": {
+    "start": "👋 Привет, <b>{name}</b>! Выбери тему для изучения:",
+    "choose_language": "🌐 Выбери язык интерфейса:",
+    "learned_words": "📊 Ты уже выучил {count} слов! 💪",
+    "next_question": "Следующий вопрос?",
+    "correct": "✅ Верно! {nl} — {en}",
+    "incorrect": "❌ Неверно. {nl} — {en}, а не {answer}",
+    "new_word_button": "📘 Новое слово",
+    "new_test_button": "🧪 Новый вопрос",
+    "language_button": "🌐 Сменить язык"
+  },
+  "en": {
+    "start": "👋 Hi, <b>{name}</b>! Choose a topic to learn:",
+    "choose_language": "🌐 Choose your interface language:",
+    "learned_words": "📊 You've learned {count} words! 💪",
+    "next_question": "Next question?",
+    "correct": "✅ Correct! {nl} — {en}",
+    "incorrect": "❌ Incorrect. {nl} — {en}, not {answer}",
+    "new_word_button": "📘 New word",
+    "new_test_button": "🧪 New question",
+    "language_button": "🌐 Change language"
+  }
+}
