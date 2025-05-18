@@ -1,23 +1,25 @@
 
 import logging
+import random
 import os
 import json
-import random
 import time
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, BotCommand
+from telegram import (
+    Update, InlineKeyboardButton, InlineKeyboardMarkup,
+    ReplyKeyboardMarkup, BotCommand
+)
 from telegram.ext import (
     ApplicationBuilder, CommandHandler, CallbackQueryHandler,
     ContextTypes, MessageHandler, filters
 )
 from gtts import gTTS
 from dotenv import load_dotenv
-from aiohttp import web
 from db import init_db, add_user, save_progress, get_progress
 
 # Загрузка переменных окружения
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-ADMIN_ID = int(os.getenv("ADMIN_ID", "123456789"))
+ADMIN_ID = int(os.getenv("ADMIN_ID", "123456789"))  # замените на свой Telegram ID
 
 logging.basicConfig(level=logging.INFO)
 
@@ -40,7 +42,7 @@ def t(key, context, **kwargs):
 load_locales()
 LANGUAGE_OPTIONS = [(code, LOCALES[code].get("language_label", code)) for code in LOCALES]
 
-# Темы слов
+# Слова по темам
 WORDS_BY_TOPIC = {}
 def load_word_topics(folder="word_topics"):
     for filename in os.listdir(folder):
@@ -48,9 +50,10 @@ def load_word_topics(folder="word_topics"):
             topic = filename[:-5]
             with open(os.path.join(folder, filename), encoding="utf-8") as f:
                 WORDS_BY_TOPIC[topic] = json.load(f)
+
 load_word_topics()
 
-# Очистка аудио
+# Очистка устаревших MP3
 def cleanup_old_mp3(folder="audio", max_age_minutes=30):
     now = time.time()
     max_age = max_age_minutes * 60
@@ -64,7 +67,6 @@ def cleanup_old_mp3(folder="audio", max_age_minutes=30):
 
 # Команды
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    print("✅ Команда /start вызвана")
     add_user(update.effective_user.id, update.effective_user.username or "")
     await choose_language(update, context)
 
@@ -119,8 +121,7 @@ async def handle_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
     word = random.choice(words)
     lang = context.user_data.get("lang", "en")
     translation = word.get(lang, word["en"])
-    text = f"<b>{word['nl']}</b> — {translation}
-<i>{word['example']}</i>"
+    text = f"<b>{word['nl']}</b> — {translation}\n<i>{word['example']}</i>"
     os.makedirs("audio", exist_ok=True)
     cleanup_old_mp3()
     filename = f"audio/{word['nl'].replace(' ', '_')}.mp3"
@@ -174,25 +175,20 @@ async def new_test_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.callback_query.answer()
     await start_test(update, context)
 
+# Feedback
 async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
         await update.message.reply_text("Please provide your feedback after the command. Example: /feedback I love it!")
         return
     user = update.effective_user
     feedback_text = " ".join(context.args)
-    text = f"Feedback from @{user.username or user.id}:
-{feedback_text}"
+    text = f"""📝 Feedback from @{user.username or user.id}:
+{feedback_text}
+"""
     await context.bot.send_message(chat_id=ADMIN_ID, text=text)
     await update.message.reply_text("✅ Thanks for your feedback!")
 
-async def handle_webhook(request):
-    print("📩 Webhook получен!")
-    data = await request.json()
-    telegram_app = request.app["bot"]
-    update = Update.de_json(data, telegram_app.bot)
-    await telegram_app.update_queue.put(update)
-    return web.Response()
-
+# Установка команд
 async def setup_commands(app):
     await app.bot.set_my_commands([
         BotCommand("start", "Start the bot"),
@@ -203,34 +199,21 @@ async def setup_commands(app):
 
 def main():
     init_db()
-    telegram_app = ApplicationBuilder().token(BOT_TOKEN).build()
+    app = ApplicationBuilder().token(BOT_TOKEN).post_init(setup_commands).build()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("language", choose_language))
+    app.add_handler(CommandHandler("topic", show_topics))
+    app.add_handler(CommandHandler("test", start_test))
+    app.add_handler(CommandHandler("feedback", feedback))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, lambda u, c: None))
+    app.add_handler(CallbackQueryHandler(set_language, pattern="^lang_"))
+    app.add_handler(CallbackQueryHandler(choose_topic, pattern="^topic_"))
+    app.add_handler(CallbackQueryHandler(handle_word, pattern="^new_word$"))
+    app.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
+    app.add_handler(CallbackQueryHandler(new_test_question, pattern="^new_test$"))
 
-    telegram_app.add_handler(CommandHandler("start", start))
-    telegram_app.add_handler(CommandHandler("language", choose_language))
-    telegram_app.add_handler(CommandHandler("topic", show_topics))
-    telegram_app.add_handler(CommandHandler("test", start_test))
-    telegram_app.add_handler(CommandHandler("feedback", feedback))
-    telegram_app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, lambda u, c: None))
-    telegram_app.add_handler(CallbackQueryHandler(set_language, pattern="^lang_"))
-    telegram_app.add_handler(CallbackQueryHandler(choose_topic, pattern="^topic_"))
-    telegram_app.add_handler(CallbackQueryHandler(handle_word, pattern="^new_word$"))
-    telegram_app.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
-    telegram_app.add_handler(CallbackQueryHandler(new_test_question, pattern="^new_test$"))
-
-    async def on_startup(aiohttp_app):
-        await setup_commands(telegram_app)
-        await telegram_app.bot.set_webhook(
-            url=os.getenv("WEBHOOK_URL"),
-            drop_pending_updates=True
-        )
-        print("✅ Webhook установлен")
-
-    web_app = web.Application()
-    web_app.router.add_post(f"/webhook/{BOT_TOKEN}", handle_webhook)
-    web_app["bot"] = telegram_app
-    web_app.on_startup.append(on_startup)
-
-    web.run_app(web_app, port=int(os.environ.get("PORT", 8080)))
+    print("✅ Бот запущен...")
+    app.run_polling()
 
 if __name__ == "__main__":
     main()
