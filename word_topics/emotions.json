@@ -1,0 +1,52 @@
+[
+  {
+    "nl": "blij",
+    "en": "happy",
+    "example": "Ik ben blij."
+  },
+  {
+    "nl": "verdrietig",
+    "en": "sad",
+    "example": "Zij is verdrietig."
+  },
+  {
+    "nl": "boos",
+    "en": "angry",
+    "example": "Hij is boos."
+  },
+  {
+    "nl": "bang",
+    "en": "afraid",
+    "example": "Ik ben bang in het donker."
+  },
+  {
+    "nl": "verrast",
+    "en": "surprised",
+    "example": "Ze is verrast."
+  },
+  {
+    "nl": "moe",
+    "en": "tired",
+    "example": "Ik ben moe."
+  },
+  {
+    "nl": "enthousiast",
+    "en": "enthusiastic",
+    "example": "Hij is enthousiast."
+  },
+  {
+    "nl": "nerveus",
+    "en": "nervous",
+    "example": "Ze is nerveus."
+  },
+  {
+    "nl": "tevreden",
+    "en": "satisfied",
+    "example": "Ik ben tevreden."
+  },
+  {
+    "nl": "jaloers",
+    "en": "jealous",
+    "example": "Hij is jaloers."
+  }
+]

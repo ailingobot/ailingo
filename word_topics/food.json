@@ -1,0 +1,87 @@
+[
+  {
+    "nl": "brood",
+    "en": "bread",
+    "example": "Ik eet brood met kaas."
+  },
+  {
+    "nl": "kaas",
+    "en": "cheese",
+    "example": "Nederland staat bekend om zijn kaas."
+  },
+  {
+    "nl": "melk",
+    "en": "milk",
+    "example": "Ik drink melk bij het ontbijt."
+  },
+  {
+    "nl": "appel",
+    "en": "apple",
+    "example": "Een appel per dag is gezond."
+  },
+  {
+    "nl": "banaan",
+    "en": "banana",
+    "example": "Ik neem een banaan mee."
+  },
+  {
+    "nl": "soep",
+    "en": "soup",
+    "example": "We eten groentesoep."
+  },
+  {
+    "nl": "vlees",
+    "en": "meat",
+    "example": "Hij eet graag vlees."
+  },
+  {
+    "nl": "vis",
+    "en": "fish",
+    "example": "Vis is gezond."
+  },
+  {
+    "nl": "rijst",
+    "en": "rice",
+    "example": "We koken rijst met kip."
+  },
+  {
+    "nl": "water",
+    "en": "water",
+    "example": "Drink genoeg water."
+  },
+  {
+    "nl": "thee",
+    "en": "tea",
+    "example": "Ik drink graag thee."
+  },
+  {
+    "nl": "koffie",
+    "en": "coffee",
+    "example": "Zij drinkt koffie zonder suiker."
+  },
+  {
+    "nl": "ontbijt",
+    "en": "breakfast",
+    "example": "Ontbijt is belangrijk."
+  },
+  {
+    "nl": "lunch",
+    "en": "lunch",
+    "example": "Lunch is rond 12 uur."
+  },
+  {
+    "nl": "diner",
+    "en": "dinner",
+    "example": "We eten een warm diner."
+  },
+  {
+    "nl": "restaurant",
+    "en": "restaurant",
+    "example": "We gaan uit eten in een restaurant."
+  },
+  {
+    "nl": "menu",
+    "en": "menu",
+    "example": "Wat staat er op het menu?"
+  }
+]

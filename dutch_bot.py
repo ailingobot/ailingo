@@ -1,13 +1,13 @@
-
+import asyncio
 import logging
 import random
 import os
 import json
 import time
 import telegram.error
+import httpx
 from telegram import (
-    Update, InlineKeyboardButton, InlineKeyboardMarkup,
-    ReplyKeyboardMarkup, BotCommand
+    Update, InlineKeyboardButton, InlineKeyboardMarkup, BotCommand
 )
 from telegram.ext import (
     ApplicationBuilder, CommandHandler, CallbackQueryHandler,
@@ -15,16 +15,16 @@ from telegram.ext import (
 )
 from gtts import gTTS
 from dotenv import load_dotenv
-from db import init_db, add_user, save_progress, get_progress
+from db import init_db, add_user, get_user_count
 
-# Загрузка переменных окружения
+# --- Config ---
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_ID = int(os.getenv("ADMIN_ID", "123456789"))
 
 logging.basicConfig(level=logging.INFO)
 
-# Локализация
+# --- Localization ---
 LOCALES = {}
 LOCALE_PATH = "locales.json"
 def load_locales():
@@ -43,7 +43,7 @@ def t(key, context, **kwargs):
 load_locales()
 LANGUAGE_OPTIONS = [(code, LOCALES[code].get("language_label", code)) for code in LOCALES]
 
-# Слова по темам
+# --- Word Topics ---
 WORDS_BY_TOPIC = {}
 def load_word_topics(folder="word_topics"):
     for filename in os.listdir(folder):
@@ -65,6 +65,20 @@ def cleanup_old_mp3(folder="audio", max_age_minutes=30):
             if now - os.path.getmtime(path) > max_age:
                 os.remove(path)
 
+
+async def notify_users_after_restart(app):
+    from db import get_all_users
+    for user_id in get_all_users():
+        try:
+            await app.bot.send_message(
+                chat_id=user_id,
+                text="🛠️ The bot was updated and is now ready to use again. Thanks for your patience!"
+            )
+        except Exception as e:
+            logging.warning(f"Could not notify user {user_id}: {e}")
+
+
+# --- Handlers ---
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     add_user(update.effective_user.id, update.effective_user.username or "")
     await choose_language(update, context)
@@ -80,25 +94,28 @@ async def set_language(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if lang_code in LOCALES:
         context.user_data["lang"] = lang_code
         await query.message.reply_text(t("about", context), parse_mode="HTML")
+        topics = list(WORDS_BY_TOPIC)
+        keyboard = [
+            [InlineKeyboardButton(topics[i].capitalize(), callback_data=f"topic_{topics[i]}")]
+            + ([InlineKeyboardButton(topics[i+1].capitalize(), callback_data=f"topic_{topics[i+1]}")] if i + 1 < len(topics) else [])
+            for i in range(0, len(topics), 2)
+        ]
         await query.message.reply_text(
             t("start", context, name=query.from_user.first_name),
             parse_mode="HTML",
-            reply_markup=InlineKeyboardMarkup([
-                [InlineKeyboardButton(topic.capitalize(), callback_data=f"topic_{topic}")]
-                for topic in WORDS_BY_TOPIC
-            ])
+            reply_markup=InlineKeyboardMarkup(keyboard)
         )
     else:
         await query.message.reply_text("❌ Unsupported language.")
 
 async def show_topics(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        t("choose_topic", context),
-        reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton(topic.capitalize(), callback_data=f"topic_{topic}")]
-            for topic in WORDS_BY_TOPIC
-        ])
-    )
+    topics = list(WORDS_BY_TOPIC)
+    keyboard = [
+        [InlineKeyboardButton(topics[i].capitalize(), callback_data=f"topic_{topics[i]}")]
+        + ([InlineKeyboardButton(topics[i+1].capitalize(), callback_data=f"topic_{topics[i+1]}")] if i + 1 < len(topics) else [])
+        for i in range(0, len(topics), 2)
+    ]
+    await update.message.reply_text(t("choose_topic", context), reply_markup=InlineKeyboardMarkup(keyboard))
 
 async def choose_topic(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -128,9 +145,9 @@ async def handle_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
         gTTS(word['nl'], lang='nl').save(filename)
         with open(filename, "rb") as audio:
             await query.message.reply_voice(voice=audio, caption=text, parse_mode="HTML")
+        os.remove(filename)
     except Exception:
         await query.message.reply_text(text)
-
     await query.message.reply_text(
         t("want_more", context),
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(t("new_word_button", context), callback_data="new_word")]])
@@ -178,46 +195,93 @@ async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
         await update.message.reply_text("Please provide your feedback after the command. Example: /feedback I love it!")
         return
-    user = update.effective_user
-    feedback_text = " ".join(context.args)
-
     await update.message.reply_text("✅ Thanks for your feedback!")
 
 async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = update.effective_user.id
-    if user_id != ADMIN_ID:
+    if update.effective_user.id != ADMIN_ID:
         await update.message.reply_text("❌ Access denied.")
         return
-    from db import get_user_count
     count = get_user_count()
     await update.message.reply_text(f"👥 Total users: {count}")
+
+async def donate(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    text = "Support this project on Buy Me a Coffee!"
+    button = InlineKeyboardMarkup([[InlineKeyboardButton("☕ Buy me a coffee", url="https://buymeacoffee.com/ailingo")]])
+    await update.message.reply_text(text, reply_markup=button, parse_mode="HTML")
+
+async def define_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    word = update.message.text.strip().lower()
+    if not word.isalpha():
+        return
+    await update.message.chat.send_action("typing")
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            response = await client.get(f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}")
+            if response.status_code != 200:
+                await update.message.reply_text(f"❌ No definition found for “{word}”.")
+                return
+            data = response.json()
+            definition = data[0]["meanings"][0]["definitions"][0]["definition"]
+            example = data[0]["meanings"][0]["definitions"][0].get("example", "")
+            msg = f"📘 <b>{word}</b>\n— {definition}"
+            if example:
+                msg += f"\n\n<i>Example:</i> {example}"
+            await update.message.reply_text(msg, parse_mode="HTML")
+    except Exception as e:
+        logging.exception("Error fetching definition")
+        await update.message.reply_text("⚠️ Something went wrong while fetching the definition.")
 
 async def setup_commands(app):
     await app.bot.set_my_commands([
         BotCommand("start", "Start the bot"),
         BotCommand("language", "Change interface language"),
         BotCommand("topic", "Choose a topic"),
-        BotCommand("feedback", "Send feedback to the admin")
+        BotCommand("feedback", "Send feedback to the admin"),
+        BotCommand("donate", "Support the project")
     ])
+
+
+async def broadcast_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.effective_user.id != ADMIN_ID:
+        await update.message.reply_text("❌ Access denied.")
+        return
+    if not context.args:
+        await update.message.reply_text("❗ Please provide a message. Example: /message Hello everyone!")
+        return
+
+    from db import get_all_users
+    text = " ".join(context.args)
+    count = 0
+    for user_id in get_all_users():
+        try:
+            await context.bot.send_message(chat_id=user_id, text=text)
+            count += 1
+        except Exception as e:
+            logging.warning(f"Failed to send message to {user_id}: {e}")
+    await update.message.reply_text(f"✅ Sent to {count} users.")
+
 
 def main():
     init_db()
     app = ApplicationBuilder().token(BOT_TOKEN).post_init(setup_commands).build()
+    app.post_init(lambda app: asyncio.create_task(notify_users_after_restart(app)))
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("language", choose_language))
     app.add_handler(CommandHandler("topic", show_topics))
     app.add_handler(CommandHandler("test", start_test))
     app.add_handler(CommandHandler("feedback", feedback))
+    app.add_handler(CommandHandler("donate", donate))
     app.add_handler(CommandHandler("users", users))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, lambda u, c: None))
+    app.add_handler(CommandHandler("message", broadcast_message))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, define_word))
     app.add_handler(CallbackQueryHandler(set_language, pattern="^lang_"))
     app.add_handler(CallbackQueryHandler(choose_topic, pattern="^topic_"))
     app.add_handler(CallbackQueryHandler(handle_word, pattern="^new_word$"))
     app.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
     app.add_handler(CallbackQueryHandler(new_test_question, pattern="^new_test$"))
 
-    print("✅ Бот запущен...")
-    print("📡 Starting polling mode...")
+    print("✅ Bot is running...")
+    print("📡 Polling mode started.")
 
     try:
         app.run_polling()
