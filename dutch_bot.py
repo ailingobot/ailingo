@@ -209,7 +209,7 @@ async def handle_webhook(request):
     return web.Response()
 
 async def on_startup(app):
-    await setup_commands(app)
+    await setup_commands(telegram_app)
     await app.bot.set_webhook(
         url=os.getenv("WEBHOOK_URL"),
         drop_pending_updates=True
@@ -219,7 +219,7 @@ async def on_startup(app):
 def main():
     init_db()
     global app
-    app = ApplicationBuilder().token(BOT_TOKEN).build()
+    telegram_app = ApplicationBuilder().token(BOT_TOKEN).build()
 
     # Добавление обработчиков
     app.add_handler(CommandHandler("start", start))
@@ -236,7 +236,7 @@ def main():
 
     # aiohttp-сервер
     web_app = web.Application()
-    web_app["bot"] = app
+    web_app["bot"] = telegram_app
     web_app.router.add_post(f"/webhook/{{BOT_TOKEN}}", handle_webhook)
     web_app.on_startup.append(on_startup)
     web.run_app(web_app, port=int(os.environ.get("PORT", 8080)))
