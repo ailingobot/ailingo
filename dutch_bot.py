@@ -213,7 +213,7 @@ async def on_startup(app):
         url=os.getenv("WEBHOOK_URL"),
         drop_pending_updates=True
     )
-    print("✅ Webhook установлен"), drop_pending_updates=True)  # ставим webhook
+    print("✅ Webhook установлен")# ставим webhook
 
 def main():
     init_db()
