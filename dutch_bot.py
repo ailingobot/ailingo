@@ -4,6 +4,7 @@ import random
 import os
 import json
 import time
+import telegram.error
 from telegram import (
     Update, InlineKeyboardButton, InlineKeyboardMarkup,
     ReplyKeyboardMarkup, BotCommand
@@ -19,7 +20,7 @@ from db import init_db, add_user, save_progress, get_progress
 # Загрузка переменных окружения
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-ADMIN_ID = int(os.getenv("ADMIN_ID", "123456789"))  # замените на свой Telegram ID
+ADMIN_ID = int(os.getenv("ADMIN_ID", "123456789"))
 
 logging.basicConfig(level=logging.INFO)
 
@@ -53,7 +54,6 @@ def load_word_topics(folder="word_topics"):
 
 load_word_topics()
 
-# Очистка устаревших MP3
 def cleanup_old_mp3(folder="audio", max_age_minutes=30):
     now = time.time()
     max_age = max_age_minutes * 60
@@ -65,7 +65,6 @@ def cleanup_old_mp3(folder="audio", max_age_minutes=30):
             if now - os.path.getmtime(path) > max_age:
                 os.remove(path)
 
-# Команды
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     add_user(update.effective_user.id, update.effective_user.username or "")
     await choose_language(update, context)
@@ -175,19 +174,16 @@ async def new_test_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.callback_query.answer()
     await start_test(update, context)
 
-# Feedback
 async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
         await update.message.reply_text("Please provide your feedback after the command. Example: /feedback I love it!")
         return
     user = update.effective_user
     feedback_text = " ".join(context.args)
-    text = f"""📝 Feedback from @{user.username or user.id}:
-{feedback_text}
-"""
+    text = f"📝 Feedback from @{user.username or user.id}:
+{feedback_text}"
     await context.bot.send_message(chat_id=ADMIN_ID, text=text)
     await update.message.reply_text("✅ Thanks for your feedback!")
-
 
 async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -198,7 +194,6 @@ async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
     count = get_user_count()
     await update.message.reply_text(f"👥 Total users: {count}")
 
-# Установка команд
 async def setup_commands(app):
     await app.bot.set_my_commands([
         BotCommand("start", "Start the bot"),
@@ -225,14 +220,11 @@ def main():
 
     print("✅ Бот запущен...")
     print("📡 Starting polling mode...")
-    
-    print("📡 Starting polling mode...")
+
     try:
         app.run_polling()
     except telegram.error.Conflict:
         print("❌ Another polling instance is already running. Exiting.")
-        return
-
 
 if __name__ == "__main__":
     main()
