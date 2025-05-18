@@ -19,7 +19,7 @@
     "test_no_translation": "⚠️ No translation for this word.",
     "test_no_active": "⚠️ No active question. Use /test again.",
     "feedback_received": "✅ Your feedback has been sent. Thank you!",
-    "about": "🇳🇱 <b>DutchBuddy</b> — learn Dutch in Telegram!\n📚 Themed vocabulary with context\n🎧 Audio for each word\n🧪 Test your knowledge\n🌐 Interface in English and Russian\n💬 /feedback — share your ideas\n☕ /donate — support the project"
+    "about": "🇳🇱 <b>DutchBuddy</b> — learn Dutch in Telegram!\n📚 Themed vocabulary with context\n🎧 Audio for each word\n🧪 Test your knowledge\n💬 /feedback — share your ideas\n☕ /donate — support the project"
   },
   "ru": {
     "language_label": "Русский 🇷🇺",
@@ -41,6 +41,6 @@
     "test_no_translation": "⚠️ Нет перевода для этого слова.",
     "test_no_active": "⚠️ Нет активного вопроса. Напиши /test снова.",
     "feedback_received": "✅ Ваш отзыв отправлен. Спасибо!",
-    "about": "🇳🇱 <b>DutchBuddy</b> — учи нидерландский в Telegram!\n📚 Тематический словарь с примерами\n🎧 Озвучка каждого слова\n🧪 Проверка знаний\n🌐 Интерфейс на русском и английском\n💬 /feedback — поделись идеей\n☕ /donate — поддержи проект"
+    "about": "🇳🇱 <b>DutchBuddy</b> — учи нидерландский в Telegram!\n📚 Тематический словарь с примерами\n🎧 Озвучка каждого слова\n🧪 Проверка знаний\n💬 /feedback — поделись идеей\n☕ /donate — поддержи проект"
   }
 }
