@@ -191,8 +191,6 @@ async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
-    await update.message.reply_text(f"🪪 Your Telegram ID: {user_id}")
-    user_id = update.effective_user.id
     if user_id != ADMIN_ID:
         await update.message.reply_text("❌ Access denied.")
         return
@@ -226,6 +224,7 @@ def main():
     app.add_handler(CallbackQueryHandler(new_test_question, pattern="^new_test$"))
 
     print("✅ Бот запущен...")
+    print("📡 Starting polling mode...")
     app.run_polling()
 
 if __name__ == "__main__":
