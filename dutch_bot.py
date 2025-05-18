@@ -127,7 +127,7 @@ async def handle_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         gTTS(word['nl'], lang='nl').save(filename)
         with open(filename, "rb") as audio:
-            await query.message.reply_audio(audio=audio, caption=text, parse_mode="HTML")
+            await query.message.reply_voice(voice=audio, caption=text, parse_mode="HTML")
     except Exception:
         await query.message.reply_text(text)
 
@@ -192,21 +192,12 @@ async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
     count = get_user_count()
     await update.message.reply_text(f"👥 Total users: {count}")
 
-
-async def donate(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = t("donate_text", context)
-    button = InlineKeyboardMarkup([[
-        InlineKeyboardButton("☕ Buy me a coffee", url="https://buymeacoffee.com/ailingo")
-    ]])
-    await update.message.reply_text(text, reply_markup=button, parse_mode="HTML")
-
 async def setup_commands(app):
     await app.bot.set_my_commands([
         BotCommand("start", "Start the bot"),
         BotCommand("language", "Change interface language"),
         BotCommand("topic", "Choose a topic"),
-        BotCommand("feedback", "Send feedback to the admin"),
-        BotCommand("donate", "Support the project")
+        BotCommand("feedback", "Send feedback to the admin")
     ])
 
 def main():
@@ -217,7 +208,6 @@ def main():
     app.add_handler(CommandHandler("topic", show_topics))
     app.add_handler(CommandHandler("test", start_test))
     app.add_handler(CommandHandler("feedback", feedback))
-    app.add_handler(CommandHandler("donate", donate))
     app.add_handler(CommandHandler("users", users))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, lambda u, c: None))
     app.add_handler(CallbackQueryHandler(set_language, pattern="^lang_"))
