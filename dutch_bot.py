@@ -197,9 +197,24 @@ async def setup_commands(app):
         BotCommand("feedback", "Send feedback to the admin")
     ])
 
+from aiohttp import web
+
+async def handle_webhook(request):
+    data = await request.json()
+    update = Update.de_json(data, app.bot)
+    await app.update_queue.put(update)
+    return web.Response()
+
+async def on_startup(app_):
+    await setup_commands(app)  # устанавливаем команды
+    await app.bot.set_webhook(os.getenv("WEBHOOK_URL"))  # ставим webhook
+
 def main():
     init_db()
-    app = ApplicationBuilder().token(BOT_TOKEN).post_init(setup_commands).build()
+    global app
+    app = ApplicationBuilder().token(BOT_TOKEN).build()
+
+    # Добавление обработчиков
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("language", choose_language))
     app.add_handler(CommandHandler("topic", show_topics))
@@ -212,8 +227,11 @@ def main():
     app.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
     app.add_handler(CallbackQueryHandler(new_test_question, pattern="^new_test$"))
 
-    print("✅ Бот запущен...")
-    app.run_polling()
+    # aiohttp-сервер
+    web_app = web.Application()
+    web_app.router.add_post(f"/webhook/{{BOT_TOKEN}}", handle_webhook)
+    web_app.on_startup.append(on_startup)
+    web.run_app(web_app, port=int(os.environ.get("PORT", 8080)))
 
 if __name__ == "__main__":
     main()
