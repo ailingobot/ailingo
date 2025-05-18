@@ -1,214 +1,214 @@
+
 import logging
 import random
 import os
 import json
 import time
-
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import (
+    Update, InlineKeyboardButton, InlineKeyboardMarkup,
+    ReplyKeyboardMarkup, BotCommand
+)
 from telegram.ext import (
-    ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes
+    ApplicationBuilder, CommandHandler, CallbackQueryHandler,
+    ContextTypes, MessageHandler, filters
 )
 from gtts import gTTS
-from db import init_db, add_user, save_progress, get_progress
 from dotenv import load_dotenv
+from db import init_db, add_user, save_progress, get_progress
 
-# --- Загрузка переменных окружения ---
+# Загрузка переменных окружения
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
+ADMIN_ID = int(os.getenv("ADMIN_ID", "123456789"))  # замените на свой Telegram ID
 
-# --- Логгирование ---
 logging.basicConfig(level=logging.INFO)
 
-# --- Словарь тем и слов ---
-WORDS_BY_TOPIC = {}
+# Локализация
+LOCALES = {}
+LOCALE_PATH = "locales.json"
+def load_locales():
+    global LOCALES
+    try:
+        with open(LOCALE_PATH, encoding="utf-8") as f:
+            LOCALES = json.load(f)
+    except Exception as e:
+        print(f"Ошибка загрузки языков: {e}")
 
-def load_word_topics(folder_path="word_topics"):
-    for filename in os.listdir(folder_path):
+def t(key, context, **kwargs):
+    lang = context.user_data.get("lang", "en")
+    text = LOCALES.get(lang, {}).get(key, key)
+    return text.format(**kwargs)
+
+load_locales()
+LANGUAGE_OPTIONS = [(code, LOCALES[code].get("language_label", code)) for code in LOCALES]
+
+# Слова по темам
+WORDS_BY_TOPIC = {}
+def load_word_topics(folder="word_topics"):
+    for filename in os.listdir(folder):
         if filename.endswith(".json"):
-            topic_name = filename[:-5]
-            path = os.path.join(folder_path, filename)
-            try:
-                with open(path, encoding="utf-8") as f:
-                    words = json.load(f)
-                    if isinstance(words, list) and all(isinstance(w, dict) for w in words):
-                        WORDS_BY_TOPIC[topic_name] = words
-                    else:
-                        print(f"⚠️ Файл {filename} имеет неверный формат")
-            except Exception as e:
-                print(f"Ошибка загрузки {filename}: {e}")
+            topic = filename[:-5]
+            with open(os.path.join(folder, filename), encoding="utf-8") as f:
+                WORDS_BY_TOPIC[topic] = json.load(f)
 
 load_word_topics()
 
-# --- Очистка старых MP3-файлов ---
+# Очистка устаревших MP3
 def cleanup_old_mp3(folder="audio", max_age_minutes=30):
     now = time.time()
     max_age = max_age_minutes * 60
-
     if not os.path.exists(folder):
         return
+    for name in os.listdir(folder):
+        path = os.path.join(folder, name)
+        if name.endswith(".mp3") and os.path.isfile(path):
+            if now - os.path.getmtime(path) > max_age:
+                os.remove(path)
 
-    for filename in os.listdir(folder):
-        if filename.endswith(".mp3"):
-            path = os.path.join(folder, filename)
-            try:
-                if os.path.isfile(path) and now - os.path.getmtime(path) > max_age:
-                    os.remove(path)
-                    logging.info(f"🗑 Удалён устаревший файл: {filename}")
-            except Exception as e:
-                logging.warning(f"Не удалось удалить {filename}: {e}")
-
-# --- /start ---
+# Команды
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user = update.effective_user
-    add_user(user.id, user.username or "")
+    add_user(update.effective_user.id, update.effective_user.username or "")
+    await choose_language(update, context)
+
+async def choose_language(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    keyboard = [[InlineKeyboardButton(label, callback_data=f"lang_{code}")] for code, label in LANGUAGE_OPTIONS]
+    await update.message.reply_text("Choose your language:", reply_markup=InlineKeyboardMarkup(keyboard))
+
+async def set_language(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    lang_code = query.data.replace("lang_", "")
+    if lang_code in LOCALES:
+        context.user_data["lang"] = lang_code
+        await query.message.reply_text(t("about", context), parse_mode="HTML")
+        await query.message.reply_text(
+            t("start", context, name=query.from_user.first_name),
+            parse_mode="HTML",
+            reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton(topic.capitalize(), callback_data=f"topic_{topic}")]
+                for topic in WORDS_BY_TOPIC
+            ])
+        )
+    else:
+        await query.message.reply_text("❌ Unsupported language.")
+
+async def show_topics(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        f"👋 Привет, <b>{user.first_name}</b>! Выбери тему для изучения:",
-        parse_mode="HTML",
+        t("choose_topic", context),
         reply_markup=InlineKeyboardMarkup([
             [InlineKeyboardButton(topic.capitalize(), callback_data=f"topic_{topic}")]
             for topic in WORDS_BY_TOPIC
         ])
     )
 
-# --- Новый перевод ---
-async def handle_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    query = update.callback_query
-    await query.answer()
-    user = query.from_user
-
-    topic = context.user_data.get("topic")
-    if not topic or topic not in WORDS_BY_TOPIC:
-        await query.message.reply_text("⚠️ Сначала выбери тему через /start.")
-        return
-
-    words = WORDS_BY_TOPIC[topic]
-    if not words:
-        await query.message.reply_text("⚠️ В этой теме пока нет слов.")
-        return
-
-    word = random.choice(words)
-    text = f"📌 <b>{word['nl']}</b> — {word['en']}\n📝 <i>{word['example']}</i>"
-
-
-    try:
-        os.makedirs("audio", exist_ok=True)
-        cleanup_old_mp3("audio", max_age_minutes=30)
-
-        filename = f"audio/{word['nl'].replace(' ', '_')}.mp3"
-        tts = gTTS(word["nl"], lang="nl")
-        tts.save(filename)
-
-        save_progress(user.id, word["nl"])
-
-        with open(filename, "rb") as audio_file:
-            await query.message.reply_audio(audio=audio_file, caption=text, parse_mode="HTML")
-
-    except Exception as e:
-        logging.error(f"TTS error: {e}")
-        await query.message.reply_text(f"⚠️ Ошибка озвучки: {e}")
-
-    await query.message.reply_text("👉 Хочешь ещё?", reply_markup=InlineKeyboardMarkup([
-        [InlineKeyboardButton("📘 Новое слово", callback_data="new_word")]
-    ]))
-
-# --- /progress ---
-async def progress(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user = update.effective_user
-    count = get_progress(user.id)
-    await update.message.reply_text(f"📊 Ты уже выучил {count} слов! 💪")
-
-# --- Выбор темы ---
 async def choose_topic(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     topic = query.data.replace("topic_", "")
-    if topic not in WORDS_BY_TOPIC:
-        await query.message.reply_text("❌ Тема не найдена")
-        return
     context.user_data["topic"] = topic
-    await query.message.reply_text(f"Вы выбрали тему: <b>{topic.capitalize()}</b>. Вот первое слово:", parse_mode="HTML")
+    await query.message.reply_text(t("topic_chosen", context, topic=topic.capitalize()), parse_mode="HTML")
     await handle_word(update, context)
+    await query.message.reply_text(
+        t("test_prompt", context),
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(t("test_button", context), callback_data="new_test")]])
+    )
 
-# --- /test ---
+async def handle_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    topic = context.user_data.get("topic")
+    words = WORDS_BY_TOPIC.get(topic, [])
+    word = random.choice(words)
+    lang = context.user_data.get("lang", "en")
+    translation = word.get(lang, word["en"])
+    text = f"<b>{word['nl']}</b> — {translation}\n<i>{word['example']}</i>"
+    os.makedirs("audio", exist_ok=True)
+    cleanup_old_mp3()
+    filename = f"audio/{word['nl'].replace(' ', '_')}.mp3"
+    try:
+        gTTS(word['nl'], lang='nl').save(filename)
+        with open(filename, "rb") as audio:
+            await query.message.reply_audio(audio=audio, caption=text, parse_mode="HTML")
+    except Exception:
+        await query.message.reply_text(text)
+
+    await query.message.reply_text(
+        t("want_more", context),
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(t("new_word_button", context), callback_data="new_word")]])
+    )
+
 async def start_test(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    send_target = update.callback_query.message if update.callback_query else update.message
+    send = update.callback_query.message if update.callback_query else update.message
     if update.callback_query:
         await update.callback_query.answer()
-
     topic = context.user_data.get("topic")
-    if not topic:
-        await send_target.reply_text("⚠️ Сначала выбери тему через /start.")
-        return
-
-    word = random.choice(WORDS_BY_TOPIC[topic])
-    correct = word["en"]
-
-    all_words = [w["en"] for t in WORDS_BY_TOPIC.values() for w in t if w["en"] != correct]
-    wrong_answers = random.sample(all_words, 2)
-    options = wrong_answers + [correct]
+    word = random.choice(WORDS_BY_TOPIC.get(topic, []))
+    correct = word.get("en")
+    wrong = [w.get("en") for t in WORDS_BY_TOPIC.values() for w in t if w.get("en") != correct]
+    options = random.sample(wrong, 2) + [correct]
     random.shuffle(options)
-
     context.user_data["test_word"] = word
-
     buttons = [[InlineKeyboardButton(opt, callback_data=f"answer_{opt}")] for opt in options]
-    await send_target.reply_text(
-        f"❓ Как переводится слово: <b>{word['nl']}</b>?",
+    await send.reply_text(
+        f"{t('test_question', context, word=word['nl'])}",
         parse_mode="HTML",
         reply_markup=InlineKeyboardMarkup(buttons)
     )
 
-# --- Ответ на тест ---
 async def handle_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
-
     selected = query.data.replace("answer_", "")
     word = context.user_data.get("test_word")
-
-    if not word:
-        await query.message.reply_text("⚠️ Нет активного вопроса. Напиши /test снова.")
-        return
-
     correct = word["en"]
     if selected == correct:
-        msg = f"✅ Верно! {word['nl']} — {correct}"
+        msg = t("test_correct", context, word=word["nl"], answer=correct)
     else:
-        msg = f"❌ Неверно. {word['nl']} — {correct}, а не {selected}"
-
+        msg = t("test_wrong", context, word=word["nl"], correct=correct, answer=selected)
     await query.message.reply_text(msg)
     await query.message.reply_text(
-        "Следующий вопрос?",
-        reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("🧪 Новый вопрос", callback_data="new_test")]
-        ])
+        t("test_next", context),
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🧪", callback_data="new_test")]])
     )
 
-# --- Новый тест ---
 async def new_test_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.callback_query.answer()
     await start_test(update, context)
 
-# --- /help ---
-async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        "/start — начать\n"
-        "/progress — твой прогресс\n"
-        "/test — проверка знаний\n"
-        "Нажимай на кнопки под сообщениями, чтобы двигаться дальше."
-    )
+# Feedback
+async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if not context.args:
+        await update.message.reply_text("Please provide your feedback after the command. Example: /feedback I love it!")
+        return
+    user = update.effective_user
+    feedback_text = " ".join(context.args)
+    text = f"""📝 Feedback from @{user.username or user.id}:
+{feedback_text}
+"""
+    await context.bot.send_message(chat_id=ADMIN_ID, text=text)
+    await update.message.reply_text("✅ Thanks for your feedback!")
 
-# --- Main ---
+# Установка команд
+async def setup_commands(app):
+    await app.bot.set_my_commands([
+        BotCommand("start", "Start the bot"),
+        BotCommand("language", "Change interface language"),
+        BotCommand("topic", "Choose a topic"),
+        BotCommand("feedback", "Send feedback to the admin")
+    ])
+
 def main():
     init_db()
-    app = ApplicationBuilder().token(BOT_TOKEN).build()
-
+    app = ApplicationBuilder().token(BOT_TOKEN).post_init(setup_commands).build()
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("progress", progress))
+    app.add_handler(CommandHandler("language", choose_language))
+    app.add_handler(CommandHandler("topic", show_topics))
     app.add_handler(CommandHandler("test", start_test))
-    app.add_handler(CommandHandler("help", help_command))
-
-    app.add_handler(CallbackQueryHandler(handle_word, pattern="^new_word$"))
+    app.add_handler(CommandHandler("feedback", feedback))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, lambda u, c: None))
+    app.add_handler(CallbackQueryHandler(set_language, pattern="^lang_"))
     app.add_handler(CallbackQueryHandler(choose_topic, pattern="^topic_"))
+    app.add_handler(CallbackQueryHandler(handle_word, pattern="^new_word$"))
     app.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
     app.add_handler(CallbackQueryHandler(new_test_question, pattern="^new_test$"))
 

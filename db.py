@@ -40,3 +40,11 @@ def get_progress(user_id):
     result = cur.fetchone()[0]
     conn.close()
     return result
+
+def get_user_count():
+    conn = sqlite3.connect("bot.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT COUNT(*) FROM users")
+    count = cursor.fetchone()[0]
+    conn.close()
+    return count
