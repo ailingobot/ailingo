@@ -67,6 +67,7 @@ def cleanup_old_mp3(folder="audio", max_age_minutes=30):
 
 # Команды
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    print("✅ Команда /start вызвана")
     add_user(update.effective_user.id, update.effective_user.username or "")
     await choose_language(update, context)
 
