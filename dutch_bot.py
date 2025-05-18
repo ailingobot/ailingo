@@ -225,7 +225,14 @@ def main():
 
     print("✅ Бот запущен...")
     print("📡 Starting polling mode...")
-    app.run_polling()
+    
+    print("📡 Starting polling mode...")
+    try:
+        app.run_polling()
+    except telegram.error.Conflict:
+        print("❌ Another polling instance is already running. Exiting.")
+        return
+
 
 if __name__ == "__main__":
     main()
