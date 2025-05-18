@@ -201,6 +201,7 @@ async def setup_commands(app):
 from aiohttp import web
 
 async def handle_webhook(request):
+    print("📩 Webhook получен!")
     data = await request.json()
     update = Update.de_json(data, app.bot)
     await app.update_queue.put(update)
