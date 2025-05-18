@@ -207,7 +207,7 @@ async def handle_webhook(request):
 
 async def on_startup(app_):
     await setup_commands(app)  # устанавливаем команды
-    await app.bot.set_webhook(os.getenv("WEBHOOK_URL"))  # ставим webhook
+    await app.bot.set_webhook(os.getenv("WEBHOOK_URL", drop_pending_updates=True))  # ставим webhook
 
 def main():
     init_db()
