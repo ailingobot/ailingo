@@ -182,7 +182,6 @@ async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     feedback_text = " ".join(context.args)
     text = f"📝 Feedback from @{user.username or user.id}:
 {feedback_text}"
-    await context.bot.send_message(chat_id=ADMIN_ID, text=text)
     await update.message.reply_text("✅ Thanks for your feedback!")
 
 async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
