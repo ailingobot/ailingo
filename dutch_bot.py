@@ -188,6 +188,16 @@ async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=ADMIN_ID, text=text)
     await update.message.reply_text("✅ Thanks for your feedback!")
 
+
+async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    if user_id != ADMIN_ID:
+        await update.message.reply_text("❌ Access denied.")
+        return
+    from db import get_user_count
+    count = get_user_count()
+    await update.message.reply_text(f"👥 Total users: {count}")
+
 # Установка команд
 async def setup_commands(app):
     await app.bot.set_my_commands([
@@ -205,6 +215,7 @@ def main():
     app.add_handler(CommandHandler("topic", show_topics))
     app.add_handler(CommandHandler("test", start_test))
     app.add_handler(CommandHandler("feedback", feedback))
+    app.add_handler(CommandHandler("users", users))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, lambda u, c: None))
     app.add_handler(CallbackQueryHandler(set_language, pattern="^lang_"))
     app.add_handler(CallbackQueryHandler(choose_topic, pattern="^topic_"))
