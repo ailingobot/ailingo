@@ -205,7 +205,7 @@ async def handle_webhook(request):
     data = await request.json()
     telegram_app = request.app["bot"]
     update = Update.de_json(data, telegram_app.bot)
-    await app.update_queue.put(update)
+    await telegram_app.update_queue.put(update)
     return web.Response()
 
 async def on_startup(app):
@@ -222,17 +222,17 @@ def main():
     telegram_app = ApplicationBuilder().token(BOT_TOKEN).build()
 
     # Добавление обработчиков
-    app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("language", choose_language))
-    app.add_handler(CommandHandler("topic", show_topics))
-    app.add_handler(CommandHandler("test", start_test))
-    app.add_handler(CommandHandler("feedback", feedback))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, lambda u, c: None))
-    app.add_handler(CallbackQueryHandler(set_language, pattern="^lang_"))
-    app.add_handler(CallbackQueryHandler(choose_topic, pattern="^topic_"))
-    app.add_handler(CallbackQueryHandler(handle_word, pattern="^new_word$"))
-    app.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
-    app.add_handler(CallbackQueryHandler(new_test_question, pattern="^new_test$"))
+    telegram_app.add_handler(CommandHandler("start", start))
+    telegram_app.add_handler(CommandHandler("language", choose_language))
+    telegram_app.add_handler(CommandHandler("topic", show_topics))
+    telegram_app.add_handler(CommandHandler("test", start_test))
+    telegram_app.add_handler(CommandHandler("feedback", feedback))
+    telegram_app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, lambda u, c: None))
+    telegram_app.add_handler(CallbackQueryHandler(set_language, pattern="^lang_"))
+    telegram_app.add_handler(CallbackQueryHandler(choose_topic, pattern="^topic_"))
+    telegram_app.add_handler(CallbackQueryHandler(handle_word, pattern="^new_word$"))
+    telegram_app.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
+    telegram_app.add_handler(CallbackQueryHandler(new_test_question, pattern="^new_test$"))
 
     # aiohttp-сервер
     web_app = web.Application()
