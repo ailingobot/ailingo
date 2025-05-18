@@ -180,7 +180,6 @@ async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     user = update.effective_user
     feedback_text = " ".join(context.args)
-    text = f"📝 Feedback from @{user.username or user.id}:
 {feedback_text}"
     await update.message.reply_text("✅ Thanks for your feedback!")
 
