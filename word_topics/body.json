@@ -1,0 +1,254 @@
+[
+  {
+    "nl": "hoofd",
+    "en": "head",
+    "ru": "голова",
+    "example": "Het hoofd is belangrijk."
+  },
+  {
+    "nl": "haar",
+    "en": "hair",
+    "ru": "волосы",
+    "example": "Zij heeft lang haar."
+  },
+  {
+    "nl": "voorhoofd",
+    "en": "forehead",
+    "ru": "лоб",
+    "example": "Hij heeft een hoog voorhoofd."
+  },
+  {
+    "nl": "wenkbrauw",
+    "en": "eyebrow",
+    "ru": "бровь",
+    "example": "Ze heeft donkere wenkbrauwen."
+  },
+  {
+    "nl": "oog",
+    "en": "eye",
+    "ru": "глаз",
+    "example": "Mijn oog doet pijn."
+  },
+  {
+    "nl": "oor",
+    "en": "ear",
+    "ru": "ухо",
+    "example": "Ik hoor je met mijn oor."
+  },
+  {
+    "nl": "neus",
+    "en": "nose",
+    "ru": "нос",
+    "example": "Mijn neus is verstopt."
+  },
+  {
+    "nl": "mond",
+    "en": "mouth",
+    "ru": "рот",
+    "example": "Doe je mond open."
+  },
+  {
+    "nl": "lip",
+    "en": "lip",
+    "ru": "",
+    "example": "Ze heeft rode lippen."
+  },
+  {
+    "nl": "tand",
+    "en": "tooth",
+    "ru": "зуб",
+    "example": "Ik poets mijn tanden."
+  },
+  {
+    "nl": "tong",
+    "en": "tongue",
+    "ru": "язык",
+    "example": "Je proeft met je tong."
+  },
+  {
+    "nl": "kin",
+    "en": "chin",
+    "ru": "",
+    "example": "Hij krabt aan zijn kin."
+  },
+  {
+    "nl": "hals",
+    "en": "neck",
+    "ru": "шея",
+    "example": "De hals is gespierd."
+  },
+  {
+    "nl": "schouder",
+    "en": "shoulder",
+    "ru": "плечо",
+    "example": "Mijn schouder doet pijn."
+  },
+  {
+    "nl": "arm",
+    "en": "arm",
+    "ru": "рука",
+    "example": "Ik hef mijn arm."
+  },
+  {
+    "nl": "elleboog",
+    "en": "elbow",
+    "ru": "локоть",
+    "example": "Buig je elleboog."
+  },
+  {
+    "nl": "pols",
+    "en": "wrist",
+    "ru": "",
+    "example": "Ik draag een horloge om mijn pols."
+  },
+  {
+    "nl": "hand",
+    "en": "hand",
+    "ru": "кисть",
+    "example": "Geef me je hand."
+  },
+  {
+    "nl": "vinger",
+    "en": "finger",
+    "ru": "палец",
+    "example": "Ik wijs met mijn vinger."
+  },
+  {
+    "nl": "duim",
+    "en": "thumb",
+    "ru": "",
+    "example": "De duim is belangrijk om te grijpen."
+  },
+  {
+    "nl": "nagel",
+    "en": "nail",
+    "ru": "ноготь",
+    "example": "Ik knip mijn nagels."
+  },
+  {
+    "nl": "borst",
+    "en": "chest",
+    "ru": "грудь",
+    "example": "Hij klopt op zijn borst."
+  },
+  {
+    "nl": "rug",
+    "en": "back",
+    "ru": "спина",
+    "example": "Mijn rug doet pijn."
+  },
+  {
+    "nl": "buik",
+    "en": "belly",
+    "ru": "",
+    "example": "Mijn buik is vol."
+  },
+  {
+    "nl": "heup",
+    "en": "hip",
+    "ru": "бедро",
+    "example": "Ze beweegt haar heupen."
+  },
+  {
+    "nl": "been",
+    "en": "leg",
+    "ru": "нога",
+    "example": "Ik loop met mijn benen."
+  },
+  {
+    "nl": "dij",
+    "en": "thigh",
+    "ru": "",
+    "example": "De dijspieren zijn sterk."
+  },
+  {
+    "nl": "knie",
+    "en": "knee",
+    "ru": "колено",
+    "example": "Ik buig mijn knie."
+  },
+  {
+    "nl": "scheen",
+    "en": "shin",
+    "ru": "",
+    "example": "Hij heeft een blauwe plek op zijn scheen."
+  },
+  {
+    "nl": "kuit",
+    "en": "calf",
+    "ru": "",
+    "example": "Mijn kuit is gespannen."
+  },
+  {
+    "nl": "enkel",
+    "en": "ankle",
+    "ru": "",
+    "example": "Ik heb mijn enkel verstuikt."
+  },
+  {
+    "nl": "voet",
+    "en": "foot",
+    "ru": "ступня",
+    "example": "Mijn voet zit in de schoen."
+  },
+  {
+    "nl": "teen",
+    "en": "toe",
+    "ru": "палец ноги",
+    "example": "Ik heb tien tenen."
+  },
+  {
+    "nl": "huid",
+    "en": "skin",
+    "ru": "кожа",
+    "example": "Mijn huid is droog."
+  },
+  {
+    "nl": "hart",
+    "en": "heart",
+    "ru": "сердце",
+    "example": "Het hart pompt bloed."
+  },
+  {
+    "nl": "long",
+    "en": "lung",
+    "ru": "лёгкое",
+    "example": "De longen helpen bij het ademen."
+  },
+  {
+    "nl": "lever",
+    "en": "liver",
+    "ru": "",
+    "example": "De lever is een belangrijk orgaan."
+  },
+  {
+    "nl": "maag",
+    "en": "stomach",
+    "ru": "живот",
+    "example": "Mijn maag rommelt."
+  },
+  {
+    "nl": "hersenen",
+    "en": "brain",
+    "ru": "мозг",
+    "example": "De hersenen controleren het lichaam."
+  },
+  {
+    "nl": "bloed",
+    "en": "blood",
+    "ru": "кровь",
+    "example": "Bloed stroomt door je aderen."
+  },
+  {
+    "nl": "spier",
+    "en": "muscle",
+    "ru": "мышца",
+    "example": "Ik train mijn spieren."
+  },
+  {
+    "nl": "bot",
+    "en": "bone",
+    "ru": "кость",
+    "example": "Het bot is gebroken."
+  }
+]

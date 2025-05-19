@@ -17,6 +17,10 @@ from gtts import gTTS
 from dotenv import load_dotenv
 from db import init_db, add_user, get_user_count
 
+
+
+
+
 # --- Config ---
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
@@ -43,6 +47,7 @@ def t(key, context, **kwargs):
 load_locales()
 LANGUAGE_OPTIONS = [(code, LOCALES[code].get("language_label", code)) for code in LOCALES]
 
+
 # --- Word Topics ---
 WORDS_BY_TOPIC = {}
 def load_word_topics(folder="word_topics"):
@@ -54,6 +59,10 @@ def load_word_topics(folder="word_topics"):
 
 load_word_topics()
 
+
+
+
+
 def cleanup_old_mp3(folder="audio", max_age_minutes=30):
     now = time.time()
     max_age = max_age_minutes * 60
@@ -64,6 +73,10 @@ def cleanup_old_mp3(folder="audio", max_age_minutes=30):
         if name.endswith(".mp3") and os.path.isfile(path):
             if now - os.path.getmtime(path) > max_age:
                 os.remove(path)
+
+
+
+
 
 
 async def notify_users_after_restart(app):
@@ -78,14 +91,26 @@ async def notify_users_after_restart(app):
             logging.warning(f"Could not notify user {user_id}: {e}")
 
 
+
+
+
+
 # --- Handlers ---
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     add_user(update.effective_user.id, update.effective_user.username or "")
     await choose_language(update, context)
 
+
+
+
+
 async def choose_language(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [[InlineKeyboardButton(label, callback_data=f"lang_{code}")] for code, label in LANGUAGE_OPTIONS]
     await update.message.reply_text("Choose your language:", reply_markup=InlineKeyboardMarkup(keyboard))
+
+
+
+
 
 async def set_language(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -100,6 +125,8 @@ async def set_language(update: Update, context: ContextTypes.DEFAULT_TYPE):
             + ([InlineKeyboardButton(topics[i+1].capitalize(), callback_data=f"topic_{topics[i+1]}")] if i + 1 < len(topics) else [])
             for i in range(0, len(topics), 2)
         ]
+        keyboard.append([InlineKeyboardButton("📘 Grammar", callback_data="grammar_menu")])
+
         await query.message.reply_text(
             t("start", context, name=query.from_user.first_name),
             parse_mode="HTML",
@@ -108,6 +135,10 @@ async def set_language(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await query.message.reply_text("❌ Unsupported language.")
 
+
+
+
+
 async def show_topics(update: Update, context: ContextTypes.DEFAULT_TYPE):
     topics = list(WORDS_BY_TOPIC)
     keyboard = [
@@ -115,7 +146,19 @@ async def show_topics(update: Update, context: ContextTypes.DEFAULT_TYPE):
         + ([InlineKeyboardButton(topics[i+1].capitalize(), callback_data=f"topic_{topics[i+1]}")] if i + 1 < len(topics) else [])
         for i in range(0, len(topics), 2)
     ]
-    await update.message.reply_text(t("choose_topic", context), reply_markup=InlineKeyboardMarkup(keyboard))
+    keyboard.append([InlineKeyboardButton("📘 Grammar", callback_data="grammar_menu")])
+
+    await update.message.reply_text(
+        t("start", context),
+        parse_mode="HTML",
+        reply_markup=InlineKeyboardMarkup(keyboard)
+    )
+
+
+
+
+
+
 
 async def choose_topic(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -128,6 +171,10 @@ async def choose_topic(update: Update, context: ContextTypes.DEFAULT_TYPE):
         t("test_prompt", context),
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(t("test_button", context), callback_data="new_test")]])
     )
+
+
+
+
 
 async def handle_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -149,9 +196,11 @@ async def handle_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception:
         await query.message.reply_text(text)
     await query.message.reply_text(
-        t("want_more", context),
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(t("new_word_button", context), callback_data="new_word")]])
-    )
+        "📘", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(t("new_word_button", context), callback_data="new_word")]]))
+
+
+
+
 
 async def start_test(update: Update, context: ContextTypes.DEFAULT_TYPE):
     send = update.callback_query.message if update.callback_query else update.message
@@ -171,31 +220,52 @@ async def start_test(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=InlineKeyboardMarkup(buttons)
     )
 
+
+
+
+
+
 async def handle_answer(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     selected = query.data.replace("answer_", "")
     word = context.user_data.get("test_word")
     correct = word["en"]
+
     if selected == correct:
         msg = t("test_correct", context, word=word["nl"], answer=correct)
     else:
         msg = t("test_wrong", context, word=word["nl"], correct=correct, answer=selected)
-    await query.message.reply_text(msg)
+    
     await query.message.reply_text(
-        t("test_next", context),
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🧪", callback_data="new_test")]])
+        msg,
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(t("test_next", context), callback_data="new_test")]])
     )
+
+
+
+
+
+
+
 
 async def new_test_question(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.callback_query.answer()
     await start_test(update, context)
+
+
+
+
 
 async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not context.args:
         await update.message.reply_text("Please provide your feedback after the command. Example: /feedback I love it!")
         return
     await update.message.reply_text("✅ Thanks for your feedback!")
+
+
+
+
 
 async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
@@ -204,10 +274,18 @@ async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
     count = get_user_count()
     await update.message.reply_text(f"👥 Total users: {count}")
 
+
+
+
+
 async def donate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = "Support this project on Buy Me a Coffee!"
     button = InlineKeyboardMarkup([[InlineKeyboardButton("☕ Buy me a coffee", url="https://buymeacoffee.com/ailingo")]])
     await update.message.reply_text(text, reply_markup=button, parse_mode="HTML")
+
+
+
+
 
 async def define_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
     word = update.message.text.strip().lower()
@@ -231,6 +309,11 @@ async def define_word(update: Update, context: ContextTypes.DEFAULT_TYPE):
         logging.exception("Error fetching definition")
         await update.message.reply_text("⚠️ Something went wrong while fetching the definition.")
 
+
+
+
+
+
 async def setup_commands(app):
     await app.bot.set_my_commands([
         BotCommand("start", "Start the bot"),
@@ -239,6 +322,10 @@ async def setup_commands(app):
         BotCommand("feedback", "Send feedback to the admin"),
         BotCommand("donate", "Support the project")
     ])
+
+
+
+
 
 
 async def broadcast_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -260,6 +347,70 @@ async def broadcast_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
             logging.warning(f"Failed to send message to {user_id}: {e}")
     await update.message.reply_text(f"✅ Sent to {count} users.")
 
+# РАЗДЕЛ ГРАММАТИКИ
+# Функция загрузки грамматических тем
+
+GRAMMAR_TOPICS = {}
+
+def load_grammar_topics(path="grammar.json"):
+    global GRAMMAR_TOPICS
+    try:
+        with open(path, encoding="utf-8") as f:
+            GRAMMAR_TOPICS = json.load(f)
+    except Exception as e:
+        logging.warning(f"Could not load grammar topics: {e}")
+
+load_grammar_topics()
+
+# Добавляет кнопку Грамматика:
+async def show_grammar_topics(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    topics = list(WORDS_BY_TOPIC)
+    keyboard = [
+        [InlineKeyboardButton(topics[i].capitalize(), callback_data=f"topic_{topics[i]}")]
+        + ([InlineKeyboardButton(topics[i+1].capitalize(), callback_data=f"topic_{topics[i+1]}")] if i + 1 < len(topics) else [])
+        for i in range(0, len(topics), 2)
+    ]
+    keyboard.append([InlineKeyboardButton("📘 Grammar", callback_data="grammar_menu")])
+    await update.message.reply_text(t("start", context), parse_mode="HTML", reply_markup=InlineKeyboardMarkup(keyboard))
+
+
+
+# Хендлер для выбора грамматической темы
+async def show_grammar_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    lang = context.user_data.get("lang", "en")
+
+    buttons = []
+    items = list(GRAMMAR_TOPICS.items())
+    for i in range(0, len(items), 4):
+        row = []
+        for key, data in items[i:i+4]:
+            label = data["title"].get(lang, key)
+            row.append(InlineKeyboardButton(label, callback_data=f"grammar_{key}"))
+        buttons.append(row)
+
+    await query.message.reply_text("📘 Choose a grammar topic:", reply_markup=InlineKeyboardMarkup(buttons))
+
+
+# Хендлер показа содержимого грамматической темы
+async def show_grammar_content(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    key = query.data.replace("grammar_", "")
+    lang = context.user_data.get("lang", "en")
+    content = GRAMMAR_TOPICS.get(key, {}).get("content", {}).get(lang)
+
+    if content:
+        await query.message.reply_text(content, parse_mode="HTML")
+    else:
+        await query.message.reply_text("❌ Content not found.")
+
+
+
+
+
+
 
 def main():
     init_db()
@@ -273,12 +424,17 @@ def main():
     app.add_handler(CommandHandler("donate", donate))
     app.add_handler(CommandHandler("users", users))
     app.add_handler(CommandHandler("message", broadcast_message))
+    
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, define_word))
     app.add_handler(CallbackQueryHandler(set_language, pattern="^lang_"))
     app.add_handler(CallbackQueryHandler(choose_topic, pattern="^topic_"))
     app.add_handler(CallbackQueryHandler(handle_word, pattern="^new_word$"))
     app.add_handler(CallbackQueryHandler(handle_answer, pattern="^answer_"))
     app.add_handler(CallbackQueryHandler(new_test_question, pattern="^new_test$"))
+
+    app.add_handler(CallbackQueryHandler(show_grammar_menu, pattern="^grammar_menu$"))
+    app.add_handler(CallbackQueryHandler(show_grammar_content, pattern="^grammar_"))
+    
 
     print("✅ Bot is running...")
     print("📡 Polling mode started.")
@@ -290,3 +446,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+

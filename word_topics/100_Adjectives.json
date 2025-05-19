@@ -1,0 +1,560 @@
+[
+  {
+    "nl": "groot",
+    "en": "big",
+    "ru": "большой",
+    "example": "Een grote auto staat daar."
+  },
+  {
+    "nl": "klein",
+    "en": "small",
+    "ru": "маленький",
+    "example": "Hij heeft een klein huis."
+  },
+  {
+    "nl": "mooi",
+    "en": "beautiful",
+    "ru": "красивый",
+    "example": "Zij draagt een mooie jurk."
+  },
+  {
+    "nl": "lelijk",
+    "en": "ugly",
+    "ru": "некрасивый",
+    "example": "Dat is een lelijke stoel."
+  },
+  {
+    "nl": "nieuw",
+    "en": "new",
+    "ru": "новый",
+    "example": "Ik heb een nieuwe fiets."
+  },
+  {
+    "nl": "oud",
+    "en": "old",
+    "ru": "старый",
+    "example": "Dat is een oud gebouw."
+  },
+  {
+    "nl": "jong",
+    "en": "young",
+    "ru": "молодой",
+    "example": "Een jonge hond speelt buiten."
+  },
+  {
+    "nl": "oud",
+    "en": "old",
+    "ru": "пожилой",
+    "example": "De oude man wandelt elke dag."
+  },
+  {
+    "nl": "goed",
+    "en": "good",
+    "ru": "хороший",
+    "example": "Dat is een goed idee."
+  },
+  {
+    "nl": "slecht",
+    "en": "bad",
+    "ru": "плохой",
+    "example": "Het was een slecht plan."
+  },
+  {
+    "nl": "duur",
+    "en": "expensive",
+    "ru": "дорогой",
+    "example": "Deze jas is duur."
+  },
+  {
+    "nl": "goedkoop",
+    "en": "cheap",
+    "ru": "дешёвый",
+    "example": "Dit boek is goedkoop."
+  },
+  {
+    "nl": "lang",
+    "en": "long/tall",
+    "ru": "длинный / высокий",
+    "example": "Zij is lang."
+  },
+  {
+    "nl": "kort",
+    "en": "short",
+    "ru": "короткий",
+    "example": "Ik heb een korte broek."
+  },
+  {
+    "nl": "dik",
+    "en": "thick/fat",
+    "ru": "толстый",
+    "example": "De kat is dik."
+  },
+  {
+    "nl": "dun",
+    "en": "thin",
+    "ru": "тонкий / худой",
+    "example": "Hij is dun."
+  },
+  {
+    "nl": "makkelijk",
+    "en": "easy",
+    "ru": "лёгкий",
+    "example": "Dit is een makkelijke vraag."
+  },
+  {
+    "nl": "moeilijk",
+    "en": "difficult",
+    "ru": "трудный",
+    "example": "De test is moeilijk."
+  },
+  {
+    "nl": "leuk",
+    "en": "nice/fun",
+    "ru": "приятный",
+    "example": "Wat een leuke film!"
+  },
+  {
+    "nl": "saai",
+    "en": "boring",
+    "ru": "скучный",
+    "example": "De les was saai."
+  },
+  {
+    "nl": "snel",
+    "en": "fast",
+    "ru": "быстрый",
+    "example": "Hij is snel klaar."
+  },
+  {
+    "nl": "langzaam",
+    "en": "slow",
+    "ru": "медленный",
+    "example": "Het verkeer is langzaam."
+  },
+  {
+    "nl": "warm",
+    "en": "warm",
+    "ru": "тёплый",
+    "example": "Het is vandaag warm."
+  },
+  {
+    "nl": "koud",
+    "en": "cold",
+    "ru": "холодный",
+    "example": "De soep is koud."
+  },
+  {
+    "nl": "nat",
+    "en": "wet",
+    "ru": "мокрый",
+    "example": "Mijn jas is nat."
+  },
+  {
+    "nl": "droog",
+    "en": "dry",
+    "ru": "сухой",
+    "example": "De grond is droog."
+  },
+  {
+    "nl": "vriendelijk",
+    "en": "friendly",
+    "ru": "дружелюбный",
+    "example": "De man is vriendelijk."
+  },
+  {
+    "nl": "onvriendelijk",
+    "en": "unfriendly",
+    "ru": "недружелюбный",
+    "example": "Zij is onvriendelijk."
+  },
+  {
+    "nl": "druk",
+    "en": "busy",
+    "ru": "занятой / оживлённый",
+    "example": "Het is druk in de stad."
+  },
+  {
+    "nl": "rustig",
+    "en": "quiet/calm",
+    "ru": "спокойный",
+    "example": "Het park is rustig."
+  },
+  {
+    "nl": "sterk",
+    "en": "strong",
+    "ru": "сильный",
+    "example": "Hij is sterk."
+  },
+  {
+    "nl": "zwak",
+    "en": "weak",
+    "ru": "слабый",
+    "example": "Ze voelt zich zwak."
+  },
+  {
+    "nl": "rijk",
+    "en": "rich",
+    "ru": "богатый",
+    "example": "De familie is rijk."
+  },
+  {
+    "nl": "arm",
+    "en": "poor",
+    "ru": "бедный",
+    "example": "Hij is arm."
+  },
+  {
+    "nl": "blij",
+    "en": "happy",
+    "ru": "радостный",
+    "example": "Ik ben blij met het cadeau."
+  },
+  {
+    "nl": "verdrietig",
+    "en": "sad",
+    "ru": "грустный",
+    "example": "Zij is verdrietig."
+  },
+  {
+    "nl": "bang",
+    "en": "afraid",
+    "ru": "напуганный",
+    "example": "Ik ben bang voor spinnen."
+  },
+  {
+    "nl": "moe",
+    "en": "tired",
+    "ru": "уставший",
+    "example": "Ik ben moe."
+  },
+  {
+    "nl": "fit",
+    "en": "fit",
+    "ru": "в хорошей форме",
+    "example": "Hij voelt zich fit."
+  },
+  {
+    "nl": "gezond",
+    "en": "healthy",
+    "ru": "здоровый",
+    "example": "Groenten zijn gezond."
+  },
+  {
+    "nl": "ziek",
+    "en": "sick",
+    "ru": "больной",
+    "example": "Hij is ziek."
+  },
+  {
+    "nl": "helder",
+    "en": "clear",
+    "ru": "ясный / чистый",
+    "example": "De lucht is helder."
+  },
+  {
+    "nl": "donker",
+    "en": "dark",
+    "ru": "тёмный",
+    "example": "Het is donker buiten."
+  },
+  {
+    "nl": "licht",
+    "en": "light",
+    "ru": "светлый / лёгкий",
+    "example": "Dit is een lichte kamer."
+  },
+  {
+    "nl": "zwaar",
+    "en": "heavy",
+    "ru": "тяжёлый",
+    "example": "De tas is zwaar."
+  },
+  {
+    "nl": "vol",
+    "en": "full",
+    "ru": "полный",
+    "example": "De doos is vol."
+  },
+  {
+    "nl": "leeg",
+    "en": "empty",
+    "ru": "пустой",
+    "example": "Het glas is leeg."
+  },
+  {
+    "nl": "hoog",
+    "en": "high",
+    "ru": "высокий",
+    "example": "De berg is hoog."
+  },
+  {
+    "nl": "laag",
+    "en": "low",
+    "ru": "низкий",
+    "example": "Het plafond is laag."
+  },
+  {
+    "nl": "oud",
+    "en": "old",
+    "ru": "старый",
+    "example": "De klok is oud."
+  },
+  {
+    "nl": "nieuwsgierig",
+    "en": "curious",
+    "ru": "любопытный",
+    "example": "Het kind is nieuwsgierig."
+  },
+  {
+    "nl": "trots",
+    "en": "proud",
+    "ru": "гордый",
+    "example": "Ze is trots op haar werk."
+  },
+  {
+    "nl": "jaloers",
+    "en": "jealous",
+    "ru": "ревнивый / завистливый",
+    "example": "Hij is jaloers."
+  },
+  {
+    "nl": "eng",
+    "en": "scary",
+    "ru": "страшный",
+    "example": "Dat huis is eng."
+  },
+  {
+    "nl": "lief",
+    "en": "sweet",
+    "ru": "милый",
+    "example": "Dat is een lief meisje."
+  },
+  {
+    "nl": "hard",
+    "en": "hard/loud",
+    "ru": "громкий / твёрдый",
+    "example": "De muziek is hard."
+  },
+  {
+    "nl": "zacht",
+    "en": "soft",
+    "ru": "мягкий",
+    "example": "Het bed is zacht."
+  },
+  {
+    "nl": "nieuw",
+    "en": "new",
+    "ru": "новый",
+    "example": "Ik koop een nieuw boek."
+  },
+  {
+    "nl": "oud",
+    "en": "old",
+    "ru": "старый",
+    "example": "Mijn oma is oud."
+  },
+  {
+    "nl": "droevig",
+    "en": "sad",
+    "ru": "печальный",
+    "example": "Het verhaal is droevig."
+  },
+  {
+    "nl": "gek",
+    "en": "crazy",
+    "ru": "сумасшедший",
+    "example": "Hij is een beetje gek."
+  },
+  {
+    "nl": "normaal",
+    "en": "normal",
+    "ru": "нормальный",
+    "example": "Dat is heel normaal."
+  },
+  {
+    "nl": "bijzonder",
+    "en": "special",
+    "ru": "особенный",
+    "example": "Ze heeft een bijzondere stem."
+  },
+  {
+    "nl": "typisch",
+    "en": "typical",
+    "ru": "типичный",
+    "example": "Dat is typisch Nederlands."
+  },
+  {
+    "nl": "serieus",
+    "en": "serious",
+    "ru": "серьёзный",
+    "example": "Hij is serieus bezig."
+  },
+  {
+    "nl": "vrolijk",
+    "en": "cheerful",
+    "ru": "весёлый",
+    "example": "Ze is altijd vrolijk."
+  },
+  {
+    "nl": "droevig",
+    "en": "sad",
+    "ru": "грустный",
+    "example": "Hij kijkt droevig."
+  },
+  {
+    "nl": "stil",
+    "en": "silent",
+    "ru": "тихий",
+    "example": "Het is stil in de kamer."
+  },
+  {
+    "nl": "luid",
+    "en": "loud",
+    "ru": "громкий",
+    "example": "De tv is luid."
+  },
+  {
+    "nl": "veilig",
+    "en": "safe",
+    "ru": "безопасный",
+    "example": "Deze buurt is veilig."
+  },
+  {
+    "nl": "gevaarlijk",
+    "en": "dangerous",
+    "ru": "опасный",
+    "example": "Dat kruispunt is gevaarlijk."
+  },
+  {
+    "nl": "duurzaam",
+    "en": "sustainable",
+    "ru": "устойчивый",
+    "example": "Ze bouwen duurzaam."
+  },
+  {
+    "nl": "klassiek",
+    "en": "classic",
+    "ru": "классический",
+    "example": "Ik houd van klassieke muziek."
+  },
+  {
+    "nl": "modern",
+    "en": "modern",
+    "ru": "современный",
+    "example": "Het is een modern gebouw."
+  },
+  {
+    "nl": "interessant",
+    "en": "interesting",
+    "ru": "интересный",
+    "example": "Het boek is interessant."
+  },
+  {
+    "nl": "belangrijk",
+    "en": "important",
+    "ru": "важный",
+    "example": "Dat is een belangrijke vraag."
+  },
+  {
+    "nl": "bekend",
+    "en": "famous",
+    "ru": "известный",
+    "example": "Hij is een bekend schrijver."
+  },
+  {
+    "nl": "onbekend",
+    "en": "unknown",
+    "ru": "неизвестный",
+    "example": "De oorzaak is onbekend."
+  },
+  {
+    "nl": "gratis",
+    "en": "free",
+    "ru": "бесплатный",
+    "example": "De toegang is gratis."
+  },
+  {
+    "nl": "gebruikelijk",
+    "en": "usual",
+    "ru": "обычный",
+    "example": "Dat is gebruikelijk hier."
+  },
+  {
+    "nl": "zeldzaam",
+    "en": "rare",
+    "ru": "редкий",
+    "example": "Dat is een zeldzame vogel."
+  },
+  {
+    "nl": "schoon",
+    "en": "clean",
+    "ru": "чистый",
+    "example": "Mijn kamer is schoon."
+  },
+  {
+    "nl": "vies",
+    "en": "dirty",
+    "ru": "грязный",
+    "example": "De vloer is vies."
+  },
+  {
+    "nl": "actief",
+    "en": "active",
+    "ru": "активный",
+    "example": "Hij is een actieve leerling."
+  },
+  {
+    "nl": "passief",
+    "en": "passive",
+    "ru": "пассивный",
+    "example": "Zij blijft passief."
+  },
+  {
+    "nl": "genoeg",
+    "en": "enough",
+    "ru": "достаточный",
+    "example": "Hebben we genoeg tijd?"
+  },
+  {
+    "nl": "extra",
+    "en": "extra",
+    "ru": "дополнительный",
+    "example": "Er is extra informatie."
+  },
+  {
+    "nl": "simpel",
+    "en": "simple",
+    "ru": "простой",
+    "example": "Dat is een simpele uitleg."
+  },
+  {
+    "nl": "complex",
+    "en": "complex",
+    "ru": "сложный",
+    "example": "Het probleem is complex."
+  },
+  {
+    "nl": "nuttig",
+    "en": "useful",
+    "ru": "полезный",
+    "example": "Deze tip is nuttig."
+  },
+  {
+    "nl": "overbodig",
+    "en": "unnecessary",
+    "ru": "излишний",
+    "example": "Dat is overbodig."
+  },
+  {
+    "nl": "volwassen",
+    "en": "adult",
+    "ru": "взрослый",
+    "example": "Hij is volwassen."
+  },
+  {
+    "nl": "kindachtig",
+    "en": "childish",
+    "ru": "детский",
+    "example": "Dat is een kindachtige reactie."
+  }
+]

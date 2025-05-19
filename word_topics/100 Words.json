@@ -1,0 +1,590 @@
+[
+  {
+    "nl": "de",
+    "en": "the",
+    "ru": "определённый артикль",
+    "example": "De man loopt op straat."
+  },
+  {
+    "nl": "en",
+    "en": "and",
+    "ru": "и",
+    "example": "Zij en ik gaan samen."
+  },
+  {
+    "nl": "van",
+    "en": "of/from",
+    "ru": "из / от",
+    "example": "De auto van mijn vader is rood."
+  },
+  {
+    "nl": "ik",
+    "en": "I",
+    "ru": "Я",
+    "example": "Ik ben moe."
+  },
+  {
+    "nl": "te",
+    "en": "to",
+    "ru": "к",
+    "example": "Ik probeer te slapen."
+  },
+  {
+    "nl": "dat",
+    "en": "that",
+    "ru": "что / тот",
+    "example": "Dat is mijn boek."
+  },
+  {
+    "nl": "die",
+    "en": "that/those",
+    "ru": "тот/те",
+    "example": "Die schoenen zijn nieuw."
+  },
+  {
+    "nl": "in",
+    "en": "in",
+    "ru": "в",
+    "example": "Zij is in de kamer."
+  },
+  {
+    "nl": "een",
+    "en": "a/an",
+    "ru": "неопределённый артикль",
+    "example": "Ik zie een vogel."
+  },
+  {
+    "nl": "hij",
+    "en": "he",
+    "ru": "он",
+    "example": "Hij leest een krant."
+  },
+  {
+    "nl": "het",
+    "en": "the/it",
+    "ru": "the/it",
+    "example": "Het regent buiten."
+  },
+  {
+    "nl": "niet",
+    "en": "not",
+    "ru": "не",
+    "example": "Ik wil niet gaan."
+  },
+  {
+    "nl": "zijn",
+    "en": "to be",
+    "ru": "быть",
+    "example": "Zijn hond is groot."
+  },
+  {
+    "nl": "is",
+    "en": "is",
+    "ru": "является",
+    "example": "Het is koud vandaag."
+  },
+  {
+    "nl": "was",
+    "en": "was",
+    "ru": "был",
+    "example": "Hij was thuis gisteren."
+  },
+  {
+    "nl": "op",
+    "en": "on",
+    "ru": "на",
+    "example": "De pen ligt op de tafel."
+  },
+  {
+    "nl": "aan",
+    "en": "at/on",
+    "ru": "на / около",
+    "example": "Zij zit aan tafel."
+  },
+  {
+    "nl": "met",
+    "en": "with",
+    "ru": "с",
+    "example": "Ik ga met haar naar school."
+  },
+  {
+    "nl": "als",
+    "en": "if/as",
+    "ru": "если / как",
+    "example": "Als het regent, blijf ik thuis."
+  },
+  {
+    "nl": "voor",
+    "en": "for/before",
+    "ru": "для / перед",
+    "example": "Dit cadeau is voor jou."
+  },
+  {
+    "nl": "had",
+    "en": "had",
+    "ru": "имел",
+    "example": "Ik had geen tijd."
+  },
+  {
+    "nl": "er",
+    "en": "there",
+    "ru": "там",
+    "example": "Er is niemand thuis."
+  },
+  {
+    "nl": "maar",
+    "en": "but",
+    "ru": "но",
+    "example": "Ik wil gaan, maar het regent."
+  },
+  {
+    "nl": "om",
+    "en": "around/to",
+    "ru": "вокруг / к",
+    "example": "We lopen om het park."
+  },
+  {
+    "nl": "hem",
+    "en": "him",
+    "ru": "его",
+    "example": "Ik zie hem niet."
+  },
+  {
+    "nl": "dan",
+    "en": "than/then",
+    "ru": "чем / затем",
+    "example": "Ik ben groter dan jij."
+  },
+  {
+    "nl": "me",
+    "en": "me",
+    "ru": "меня / мне",
+    "example": "Laat me met rust."
+  },
+  {
+    "nl": "ze",
+    "en": "she/they",
+    "ru": "она / они",
+    "example": "Ze komt morgen."
+  },
+  {
+    "nl": "u",
+    "en": "you (formal)",
+    "ru": "вы (вежливо)",
+    "example": "Hoe gaat het met u?"
+  },
+  {
+    "nl": "naar",
+    "en": "to",
+    "ru": "к",
+    "example": "Ik ga naar school."
+  },
+  {
+    "nl": "heeft",
+    "en": "has",
+    "ru": "имеет",
+    "example": "Zij heeft een hond."
+  },
+  {
+    "nl": "heb",
+    "en": "have",
+    "ru": "иметь",
+    "example": "Ik heb een idee."
+  },
+  {
+    "nl": "doen",
+    "en": "do",
+    "ru": "делать",
+    "example": "Wat wil je doen?"
+  },
+  {
+    "nl": "niets",
+    "en": "nothing",
+    "ru": "ничего",
+    "example": "Ik zie niets."
+  },
+  {
+    "nl": "jij",
+    "en": "you",
+    "ru": "ты / вы",
+    "example": "Jij bent mijn vriend."
+  },
+  {
+    "nl": "of",
+    "en": "or",
+    "ru": "или",
+    "example": "Wil je thee of koffie?"
+  },
+  {
+    "nl": "mijn",
+    "en": "my",
+    "ru": "мой",
+    "example": "Mijn naam is Anna."
+  },
+  {
+    "nl": "al",
+    "en": "already",
+    "ru": "уже",
+    "example": "Ik heb al gegeten."
+  },
+  {
+    "nl": "jou",
+    "en": "you",
+    "ru": "ты / вы",
+    "example": "Ik zie jou later."
+  },
+  {
+    "nl": "nog",
+    "en": "still",
+    "ru": "всё ещё",
+    "example": "Ik moet nog eten."
+  },
+  {
+    "nl": "geen",
+    "en": "no/none",
+    "ru": "нет / ни одного",
+    "example": "Ik heb geen idee."
+  },
+  {
+    "nl": "iets",
+    "en": "something",
+    "ru": "что-то",
+    "example": "Wil je iets drinken?"
+  },
+  {
+    "nl": "wel",
+    "en": "indeed",
+    "ru": "действительно",
+    "example": "Ik kom wel morgen."
+  },
+  {
+    "nl": "eens",
+    "en": "once",
+    "ru": "однажды",
+    "example": "Probeer het eens."
+  },
+  {
+    "nl": "nu",
+    "en": "now",
+    "ru": "сейчас",
+    "example": "Ik ben nu klaar."
+  },
+  {
+    "nl": "alles",
+    "en": "everything",
+    "ru": "всё",
+    "example": "Alles is klaar."
+  },
+  {
+    "nl": "je",
+    "en": "you",
+    "ru": "ты / вы",
+    "example": "Waar woon je?"
+  },
+  {
+    "nl": "dus",
+    "en": "so",
+    "ru": "поэтому",
+    "example": "Het regent, dus ik blijf thuis."
+  },
+  {
+    "nl": "altijd",
+    "en": "always",
+    "ru": "всегда",
+    "example": "Hij is altijd blij."
+  },
+  {
+    "nl": "men",
+    "en": "one/people",
+    "ru": "люди / кто-то",
+    "example": "Men zegt dat het goed is."
+  },
+  {
+    "nl": "wij",
+    "en": "we",
+    "ru": "мы",
+    "example": "Wij gaan naar school."
+  },
+  {
+    "nl": "ons",
+    "en": "us",
+    "ru": "нас",
+    "example": "Dat is ons huis."
+  },
+  {
+    "nl": "hun",
+    "en": "them",
+    "ru": "их",
+    "example": "Ik bel hun morgen."
+  },
+  {
+    "nl": "ook",
+    "en": "also",
+    "ru": "тоже",
+    "example": "Ik wil ook een koekje."
+  },
+  {
+    "nl": "weer",
+    "en": "again/weather",
+    "ru": "снова / погода",
+    "example": "Het is weer koud."
+  },
+  {
+    "nl": "bij",
+    "en": "at/by",
+    "ru": "у / возле",
+    "example": "Ik ben bij de dokter."
+  },
+  {
+    "nl": "toch",
+    "en": "still/yet",
+    "ru": "всё же",
+    "example": "Je komt toch, hè?"
+  },
+  {
+    "nl": "alleen",
+    "en": "only/alone",
+    "ru": "только / один",
+    "example": "Hij is alleen thuis."
+  },
+  {
+    "nl": "moet",
+    "en": "must",
+    "ru": "должен",
+    "example": "Ik moet werken."
+  },
+  {
+    "nl": "worden",
+    "en": "to become",
+    "ru": "становиться",
+    "example": "Hij wil dokter worden."
+  },
+  {
+    "nl": "toen",
+    "en": "then",
+    "ru": "тогда",
+    "example": "Toen was ik jong."
+  },
+  {
+    "nl": "kon",
+    "en": "could",
+    "ru": "мог",
+    "example": "Ik kon niet komen."
+  },
+  {
+    "nl": "aan het",
+    "en": "in the act of",
+    "ru": "в процессе",
+    "example": "Hij is aan het lezen."
+  },
+  {
+    "nl": "daar",
+    "en": "there",
+    "ru": "там",
+    "example": "Hij woont daar."
+  },
+  {
+    "nl": "jezelf",
+    "en": "yourself",
+    "ru": "себя / себя самого",
+    "example": "Zorg goed voor jezelf."
+  },
+  {
+    "nl": "ieder",
+    "en": "each",
+    "ru": "каждый",
+    "example": "Ieder kind is uniek."
+  },
+  {
+    "nl": "welke",
+    "en": "which",
+    "ru": "который",
+    "example": "Welke wil je?"
+  },
+  {
+    "nl": "omdat",
+    "en": "because",
+    "ru": "потому что",
+    "example": "Ik kom niet omdat ik ziek ben."
+  },
+  {
+    "nl": "hoe",
+    "en": "how",
+    "ru": "как",
+    "example": "Hoe gaat het?"
+  },
+  {
+    "nl": "waar",
+    "en": "where",
+    "ru": "где",
+    "example": "Waar ben je?"
+  },
+  {
+    "nl": "wat",
+    "en": "what",
+    "ru": "что",
+    "example": "Wat doe je?"
+  },
+  {
+    "nl": "wanneer",
+    "en": "when",
+    "ru": "когда",
+    "example": "Wanneer ga je?"
+  },
+  {
+    "nl": "waarom",
+    "en": "why",
+    "ru": "почему",
+    "example": "Waarom lach je?"
+  },
+  {
+    "nl": "wie",
+    "en": "who",
+    "ru": "кто",
+    "example": "Wie is dat?"
+  },
+  {
+    "nl": "dit",
+    "en": "this",
+    "ru": "этот",
+    "example": "Dit is mijn stoel."
+  },
+  {
+    "nl": "dat",
+    "en": "that",
+    "ru": "что / тот",
+    "example": "Dat is mijn boek."
+  },
+  {
+    "nl": "deze",
+    "en": "these",
+    "ru": "эти",
+    "example": "Ik neem deze."
+  },
+  {
+    "nl": "die",
+    "en": "those",
+    "ru": "те",
+    "example": "Die zijn oud."
+  },
+  {
+    "nl": "hier",
+    "en": "here",
+    "ru": "здесь",
+    "example": "Blijf hier."
+  },
+  {
+    "nl": "daar",
+    "en": "there",
+    "ru": "там",
+    "example": "Ga daar zitten."
+  },
+  {
+    "nl": "boven",
+    "en": "upstairs",
+    "ru": "наверху",
+    "example": "Mijn kamer is boven."
+  },
+  {
+    "nl": "beneden",
+    "en": "downstairs",
+    "ru": "внизу",
+    "example": "De keuken is beneden."
+  },
+  {
+    "nl": "binnen",
+    "en": "inside",
+    "ru": "внутри",
+    "example": "Blijf binnen."
+  },
+  {
+    "nl": "buiten",
+    "en": "outside",
+    "ru": "снаружи",
+    "example": "Speel buiten."
+  },
+  {
+    "nl": "snel",
+    "en": "fast",
+    "ru": "быстро",
+    "example": "Hij loopt snel."
+  },
+  {
+    "nl": "langzaam",
+    "en": "slow",
+    "ru": "медленно",
+    "example": "Ze spreekt langzaam."
+  },
+  {
+    "nl": "groot",
+    "en": "big",
+    "ru": "большой",
+    "example": "De hond is groot."
+  },
+  {
+    "nl": "klein",
+    "en": "small",
+    "ru": "маленький",
+    "example": "Mijn kamer is klein."
+  },
+  {
+    "nl": "oud",
+    "en": "old",
+    "ru": "старый",
+    "example": "Mijn opa is oud."
+  },
+  {
+    "nl": "jong",
+    "en": "young",
+    "ru": "молодой",
+    "example": "Mijn zus is jong."
+  },
+  {
+    "nl": "mooi",
+    "en": "beautiful",
+    "ru": "красивый",
+    "example": "Wat een mooie jurk!"
+  },
+  {
+    "nl": "lelijk",
+    "en": "ugly",
+    "ru": "некрасивый",
+    "example": "Dat schilderij is lelijk."
+  },
+  {
+    "nl": "goed",
+    "en": "good",
+    "ru": "хороший",
+    "example": "Dat is een goed idee."
+  },
+  {
+    "nl": "slecht",
+    "en": "bad",
+    "ru": "плохой",
+    "example": "Het weer is slecht."
+  },
+  {
+    "nl": "warm",
+    "en": "warm",
+    "ru": "тёплый",
+    "example": "Het is warm vandaag."
+  },
+  {
+    "nl": "koud",
+    "en": "cold",
+    "ru": "холодный",
+    "example": "Mijn handen zijn koud."
+  },
+  {
+    "nl": "gelukkig",
+    "en": "happy",
+    "ru": "счастливый",
+    "example": "Ik ben gelukkig."
+  },
+  {
+    "nl": "triest",
+    "en": "sad",
+    "ru": "грустный",
+    "example": "Zij is triest."
+  }
+]

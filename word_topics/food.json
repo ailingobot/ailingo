@@ -1,0 +1,554 @@
+[
+  {
+    "nl": "appel",
+    "en": "apple",
+    "ru": "яблоко",
+    "example": "De appel is rood."
+  },
+  {
+    "nl": "banaan",
+    "en": "banana",
+    "ru": "банан",
+    "example": "Ik eet een rijpe banaan."
+  },
+  {
+    "nl": "brood",
+    "en": "bread",
+    "ru": "хлеб",
+    "example": "Ik koop vers brood."
+  },
+  {
+    "nl": "kaas",
+    "en": "cheese",
+    "ru": "сыр",
+    "example": "Zij snijdt zachte kaas."
+  },
+  {
+    "nl": "melk",
+    "en": "milk",
+    "ru": "молоко",
+    "example": "De koude melk staat in de koelkast."
+  },
+  {
+    "nl": "water",
+    "en": "water",
+    "ru": "вода",
+    "example": "Ik drink schoon water."
+  },
+  {
+    "nl": "sap",
+    "en": "juice",
+    "ru": "сок",
+    "example": "Hij drinkt vers sinaasappelsap."
+  },
+  {
+    "nl": "vlees",
+    "en": "meat",
+    "ru": "мясо",
+    "example": "We eten gebraden vlees."
+  },
+  {
+    "nl": "kip",
+    "en": "chicken",
+    "ru": "курица",
+    "example": "Zij kookt gekruide kip."
+  },
+  {
+    "nl": "vis",
+    "en": "fish",
+    "ru": "рыба",
+    "example": "Ik eet gebakken vis."
+  },
+  {
+    "nl": "rijst",
+    "en": "rice",
+    "ru": "рис",
+    "example": "We maken witte rijst."
+  },
+  {
+    "nl": "pasta",
+    "en": "pasta",
+    "ru": "паста",
+    "example": "Ik houd van Italiaanse pasta."
+  },
+  {
+    "nl": "soep",
+    "en": "soup",
+    "ru": "суп",
+    "example": "De warme soep smaakt goed."
+  },
+  {
+    "nl": "ei",
+    "en": "egg",
+    "ru": "яйцо",
+    "example": "Ik kook een hardgekookt ei."
+  },
+  {
+    "nl": "groente",
+    "en": "vegetable",
+    "ru": "овощ",
+    "example": "Verse groenten zijn gezond."
+  },
+  {
+    "nl": "fruit",
+    "en": "fruit",
+    "ru": "фрукты",
+    "example": "Ik koop rijp fruit."
+  },
+  {
+    "nl": "aardappel",
+    "en": "potato",
+    "ru": "картофель",
+    "example": "We bakken knapperige aardappelen."
+  },
+  {
+    "nl": "wortel",
+    "en": "carrot",
+    "ru": "морковь",
+    "example": "Zij snijdt een oranje wortel."
+  },
+  {
+    "nl": "tomaat",
+    "en": "tomato",
+    "ru": "помидор",
+    "example": "De tomaat is sappig."
+  },
+  {
+    "nl": "komkommer",
+    "en": "cucumber",
+    "ru": "огурец",
+    "example": "Ik eet een frisse komkommer."
+  },
+  {
+    "nl": "ui",
+    "en": "onion",
+    "ru": "лук",
+    "example": "Snijd de scherpe ui."
+  },
+  {
+    "nl": "knoflook",
+    "en": "garlic",
+    "ru": "чеснок",
+    "example": "Gebruik fijngesneden knoflook."
+  },
+  {
+    "nl": "peper",
+    "en": "pepper",
+    "ru": "перец",
+    "example": "Voeg zwarte peper toe."
+  },
+  {
+    "nl": "zout",
+    "en": "salt",
+    "ru": "соль",
+    "example": "Gebruik niet te veel zout."
+  },
+  {
+    "nl": "olie",
+    "en": "oil",
+    "ru": "масло",
+    "example": "We gebruiken olijfolie."
+  },
+  {
+    "nl": "boter",
+    "en": "butter",
+    "ru": "масло",
+    "example": "Smeer zachte boter op het brood."
+  },
+  {
+    "nl": "yoghurt",
+    "en": "yogurt",
+    "ru": "йогурт",
+    "example": "Ik eet koude yoghurt."
+  },
+  {
+    "nl": "kaas",
+    "en": "cheese",
+    "ru": "сыр",
+    "example": "De oude kaas is sterk."
+  },
+  {
+    "nl": "suiker",
+    "en": "sugar",
+    "ru": "сахар",
+    "example": "Voeg zoete suiker toe."
+  },
+  {
+    "nl": "meel",
+    "en": "flour",
+    "ru": "мука",
+    "example": "Ik gebruik wit meel."
+  },
+  {
+    "nl": "honing",
+    "en": "honey",
+    "ru": "мёд",
+    "example": "Natuurlijke honing is lekker."
+  },
+  {
+    "nl": "chocolade",
+    "en": "chocolate",
+    "ru": "шоколад",
+    "example": "Melkchocolade is populair."
+  },
+  {
+    "nl": "ijs",
+    "en": "ice cream",
+    "ru": "мороженое",
+    "example": "We eten koud ijs."
+  },
+  {
+    "nl": "koekje",
+    "en": "cookie",
+    "ru": "печенье",
+    "example": "Dat is een knapperig koekje."
+  },
+  {
+    "nl": "taart",
+    "en": "cake/pie",
+    "ru": "торт",
+    "example": "Hij bakt een zoete taart."
+  },
+  {
+    "nl": "pannenkoek",
+    "en": "pancake",
+    "ru": "блин",
+    "example": "Zij maakt dunne pannenkoeken."
+  },
+  {
+    "nl": "pizza",
+    "en": "pizza",
+    "ru": "пицца",
+    "example": "We eten warme pizza."
+  },
+  {
+    "nl": "hamburger",
+    "en": "hamburger",
+    "ru": "гамбургер",
+    "example": "De hamburger is sappig."
+  },
+  {
+    "nl": "worst",
+    "en": "sausage",
+    "ru": "колбаса",
+    "example": "Zij braadt pittige worst."
+  },
+  {
+    "nl": "salade",
+    "en": "salad",
+    "ru": "салат",
+    "example": "De verse salade is gezond."
+  },
+  {
+    "nl": "mayonaise",
+    "en": "mayonnaise",
+    "ru": "майонез",
+    "example": "Voeg romige mayonaise toe."
+  },
+  {
+    "nl": "ketchup",
+    "en": "ketchup",
+    "ru": "кетчуп",
+    "example": "Er is tomatenketchup op tafel."
+  },
+  {
+    "nl": "snack",
+    "en": "snack",
+    "ru": "перекус",
+    "example": "Een zoute snack voor tussendoor."
+  },
+  {
+    "nl": "ontbijt",
+    "en": "breakfast",
+    "ru": "завтрак",
+    "example": "Een voedzaam ontbijt is belangrijk."
+  },
+  {
+    "nl": "lunch",
+    "en": "lunch",
+    "ru": "обед",
+    "example": "Mijn lunch is licht."
+  },
+  {
+    "nl": "diner",
+    "en": "dinner",
+    "ru": "ужин",
+    "example": "Het avondeten is uitgebreid."
+  },
+  {
+    "nl": "thee",
+    "en": "tea",
+    "ru": "чай",
+    "example": "Zij drinkt hete thee."
+  },
+  {
+    "nl": "koffie",
+    "en": "coffee",
+    "ru": "кофе",
+    "example": "Hij drinkt sterke koffie."
+  },
+  {
+    "nl": "bier",
+    "en": "beer",
+    "ru": "пиво",
+    "example": "Een koud biertje op het terras."
+  },
+  {
+    "nl": "wijn",
+    "en": "wine",
+    "ru": "вино",
+    "example": "Zij drinkt rode wijn."
+  },
+  {
+    "nl": "drank",
+    "en": "drink",
+    "ru": "напиток",
+    "example": "Een verfrissend drankje op een warme dag."
+  },
+  {
+    "nl": "saus",
+    "en": "sauce",
+    "ru": "соус",
+    "example": "De pittige saus is lekker."
+  },
+  {
+    "nl": "snack",
+    "en": "snack",
+    "ru": "закуска",
+    "example": "Een kleine snack voor later."
+  },
+  {
+    "nl": "snoep",
+    "en": "candy",
+    "ru": "сладость",
+    "example": "Kinderen houden van zoet snoep."
+  },
+  {
+    "nl": "chips",
+    "en": "chips",
+    "ru": "чипсы",
+    "example": "De chips zijn knapperig."
+  },
+  {
+    "nl": "noten",
+    "en": "nuts",
+    "ru": "орехи",
+    "example": "Gezouten noten als tussendoortje."
+  },
+  {
+    "nl": "appelmoes",
+    "en": "applesauce",
+    "ru": "яблочное пюре",
+    "example": "De appelmoes is zoet."
+  },
+  {
+    "nl": "vla",
+    "en": "custard",
+    "ru": "пудинг",
+    "example": "Hij eet gele vla."
+  },
+  {
+    "nl": "pudding",
+    "en": "pudding",
+    "ru": "десерт",
+    "example": "De chocoladepudding is zacht."
+  },
+  {
+    "nl": "rijstepap",
+    "en": "rice porridge",
+    "ru": "рисовая каша",
+    "example": "Ik maak warme rijstepap."
+  },
+  {
+    "nl": "spinazie",
+    "en": "spinach",
+    "ru": "шпинат",
+    "example": "Verse spinazie is gezond."
+  },
+  {
+    "nl": "champignon",
+    "en": "mushroom",
+    "ru": "гриб",
+    "example": "Een verse champignon in de pan."
+  },
+  {
+    "nl": "paprika",
+    "en": "bell pepper",
+    "ru": "перец",
+    "example": "De rode paprika is zoet."
+  },
+  {
+    "nl": "erwt",
+    "en": "pea",
+    "ru": "горошек",
+    "example": "Groene erwten in de soep."
+  },
+  {
+    "nl": "boon",
+    "en": "bean",
+    "ru": "фасоль",
+    "example": "Zwarte bonen zijn voedzaam."
+  },
+  {
+    "nl": "linzen",
+    "en": "lentils",
+    "ru": "чечевица",
+    "example": "Linzen zijn rijk aan eiwit."
+  },
+  {
+    "nl": "augurk",
+    "en": "pickle",
+    "ru": "солёный огурец",
+    "example": "De augurk is zuur."
+  },
+  {
+    "nl": "rijstwafel",
+    "en": "rice cake",
+    "ru": "рисовый хлебец",
+    "example": "Een knapperige rijstwafel."
+  },
+  {
+    "nl": "cracker",
+    "en": "cracker",
+    "ru": "крекер",
+    "example": "Een droge cracker met kaas."
+  },
+  {
+    "nl": "bes",
+    "en": "berry",
+    "ru": "ягода",
+    "example": "Een zoete blauwe bes."
+  },
+  {
+    "nl": "aardbei",
+    "en": "strawberry",
+    "ru": "клубника",
+    "example": "De aardbei is rood."
+  },
+  {
+    "nl": "framboos",
+    "en": "raspberry",
+    "ru": "малина",
+    "example": "Verse frambozen in yoghurt."
+  },
+  {
+    "nl": "bosbes",
+    "en": "blueberry",
+    "ru": "черника",
+    "example": "De bosbes is gezond."
+  },
+  {
+    "nl": "druif",
+    "en": "grape",
+    "ru": "виноград",
+    "example": "Een tros sappige druiven."
+  },
+  {
+    "nl": "peer",
+    "en": "pear",
+    "ru": "груша",
+    "example": "De peer is rijp."
+  },
+  {
+    "nl": "perzik",
+    "en": "peach",
+    "ru": "персик",
+    "example": "Een sappige perzik voor dessert."
+  },
+  {
+    "nl": "meloen",
+    "en": "melon",
+    "ru": "дыня",
+    "example": "De meloen is verfrissend."
+  },
+  {
+    "nl": "watermeloen",
+    "en": "watermelon",
+    "ru": "арбуз",
+    "example": "Een koude watermeloen op een warme dag."
+  },
+  {
+    "nl": "citroen",
+    "en": "lemon",
+    "ru": "лимон",
+    "example": "Een zure citroen in de thee."
+  },
+  {
+    "nl": "limoen",
+    "en": "lime",
+    "ru": "лайм",
+    "example": "Een frisse limoen voor de saus."
+  },
+  {
+    "nl": "ananas",
+    "en": "pineapple",
+    "ru": "ананас",
+    "example": "De ananas is zoet en sappig."
+  },
+  {
+    "nl": "kokosnoot",
+    "en": "coconut",
+    "ru": "кокос",
+    "example": "Vers kokosnootwater is lekker."
+  },
+  {
+    "nl": "dadels",
+    "en": "dates",
+    "ru": "финики",
+    "example": "Zoete dadels als snack."
+  },
+  {
+    "nl": "rozijn",
+    "en": "raisin",
+    "ru": "изюм",
+    "example": "Rozijnen in de muesli."
+  },
+  {
+    "nl": "muesli",
+    "en": "muesli",
+    "ru": "мюсли",
+    "example": "Gezonde muesli met melk."
+  },
+  {
+    "nl": "havermout",
+    "en": "oatmeal",
+    "ru": "овсянка",
+    "example": "Ik eet warme havermout."
+  },
+  {
+    "nl": "broccoli",
+    "en": "broccoli",
+    "ru": "брокколи",
+    "example": "Gestoomde broccoli is gezond."
+  },
+  {
+    "nl": "bloemkool",
+    "en": "cauliflower",
+    "ru": "цветная капуста",
+    "example": "De bloemkool is zacht gekookt."
+  },
+  {
+    "nl": "courgette",
+    "en": "zucchini",
+    "ru": "цуккини",
+    "example": "Een groene courgette in de pan."
+  },
+  {
+    "nl": "pompoen",
+    "en": "pumpkin",
+    "ru": "тыква",
+    "example": "Pompoensoep in de herfst."
+  },
+  {
+    "nl": "selderij",
+    "en": "celery",
+    "ru": "сельдерей",
+    "example": "Verse selderij in salade."
+  },
+  {
+    "nl": "radijs",
+    "en": "radish",
+    "ru": "редис",
+    "example": "Scherpe radijs op brood."
+  }
+]

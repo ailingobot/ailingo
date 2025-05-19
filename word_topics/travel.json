@@ -1,0 +1,52 @@
+[
+  {
+    "nl": "reizen",
+    "en": "to travel",
+    "example": "Ik hou van reizen."
+  },
+  {
+    "nl": "vliegtuig",
+    "en": "airplane",
+    "example": "Het vliegtuig is laat."
+  },
+  {
+    "nl": "trein",
+    "en": "train",
+    "example": "De trein is snel."
+  },
+  {
+    "nl": "bus",
+    "en": "bus",
+    "example": "Ik wacht op de bus."
+  },
+  {
+    "nl": "hotel",
+    "en": "hotel",
+    "example": "We slapen in een hotel."
+  },
+  {
+    "nl": "paspoort",
+    "en": "passport",
+    "example": "Ik heb mijn paspoort nodig."
+  },
+  {
+    "nl": "koffer",
+    "en": "suitcase",
+    "example": "Mijn koffer is zwaar."
+  },
+  {
+    "nl": "ticket",
+    "en": "ticket",
+    "example": "Waar is mijn ticket?"
+  },
+  {
+    "nl": "bestemming",
+    "en": "destination",
+    "example": "Onze bestemming is Parijs."
+  },
+  {
+    "nl": "kaart",
+    "en": "map",
+    "example": "Heb je een kaart?"
+  }
+]
