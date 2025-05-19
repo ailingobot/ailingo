@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 {
   "pronouns": {
     "title": {
@@ -134,5 +134,5 @@
       "ru": "<b>🔢 Числа в нидерландском</b>\n\n<b>0–20:</b>\n<b>0</b> nul\n<b>1</b> één\n<b>2</b> twee\n<b>3</b> drie\n<b>4</b> vier\n<b>5</b> vijf\n<b>6</b> zes\n<b>7</b> zeven\n<b>8</b> acht\n<b>9</b> negen\n<b>10</b> tien\n<b>11</b> elf\n<b>12</b> twaalf\n<b>13</b> dertien\n<b>14</b> veertien\n<b>15</b> vijftien\n<b>16</b> zestien\n<b>17</b> zeventien\n<b>18</b> achttien\n<b>19</b> negentien\n<b>20</b> twintig\n\n<b>Десятки:</b>\n<b>30</b> dertig\n<b>40</b> veertig\n<b>50</b> vijftig\n<b>60</b> zestig\n<b>70</b> zeventig\n<b>80</b> tachtig\n<b>90</b> negentig\n<b>100</b> honderd\n\n<b>Составные числа:</b>\n<b>21</b> eenentwintig\n<b>37</b> zevenendertig\n<b>88</b> achtentachtig\n<b>99</b> negenennegentig\n\n<b>Сотни и тысячи:</b>\n<b>200</b> tweehonderd\n<b>500</b> vijfhonderd\n<b>1,000</b> duizend\n<b>2,000</b> tweeduizend\n<b>10,000</b> tienduizend\n<b>1,000,000</b> één miljoen\n\n<b>Порядковые числительные:</b>\n<b>1-й</b> eerste\n<b>2-й</b> tweede\n<b>3-й</b> derde\n<b>4-й</b> vierde\n<b>5-й</b> vijfde\n<b>6-й</b> zesde\n<b>7-й</b> zevende\n<b>8-й</b> achtste\n<b>9-й</b> negende\n<b>10-й</b> tiende\n<b>11-й</b> elfde\n<b>12-й</b> twaalfde\n<b>20-й</b> twintigste\n<b>21-й</b> eenentwintigste\n<b>100-й</b> honderdste\n<b>1000-й</b> duizendste\n\n<b>Примеры:</b>\n<i>Ik heb drie katten.</i> — У меня три кошки.\n<i>Hij is acht jaar oud.</i> — Ему восемь лет.\n<i>We wonen hier sinds tweeduizend twaalf.</i> — Мы живём здесь с 2012 года.\n<i>Hij kwam als derde aan.</i> — Он пришёл третьим.\n<i>Vandaag is de twintigste.</i> — Сегодня двадцатое число."
     }
   }
->>>>>>> 8c555302d6b09d0938f73a32ec9440d83964d134
+
 }
