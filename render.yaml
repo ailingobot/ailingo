@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 services:
   - type: worker
     name: ailingo-bot
     env: python
     plan: free
     buildCommand: "pip install -r requirements.txt"
+=======
+services:
+  - type: worker
+    name: ailingo-bot
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+>>>>>>> 8c555302d6b09d0938f73a32ec9440d83964d134
     startCommand: "python dutch_bot.py"
