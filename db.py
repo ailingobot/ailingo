@@ -56,3 +56,11 @@ def get_progress(user_id, topic):
     row = c.fetchone()
     conn.close()
     return row[0] if row else 0
+
+
+def add_user(user_id, username):
+    conn = sqlite3.connect(DB_PATH)
+    c = conn.cursor()
+    c.execute("INSERT OR IGNORE INTO users (user_id, username) VALUES (?, ?)", (user_id, username))
+    conn.commit()
+    conn.close()
