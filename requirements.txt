@@ -1,9 +1,3 @@
-<<<<<<< HEAD
 python-telegram-bot==20.6
 gTTS
 python-dotenv
-=======
-python-telegram-bot==20.6
-gTTS
-python-dotenv
->>>>>>> 8c555302d6b09d0938f73a32ec9440d83964d134
