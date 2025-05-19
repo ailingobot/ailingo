@@ -1,0 +1,512 @@
+[
+  {
+    "nl": "huis",
+    "en": "house",
+    "ru": "дом",
+    "example": "Het huis is groot."
+  },
+  {
+    "nl": "woning",
+    "en": "residence",
+    "ru": "жилище",
+    "example": "Ze zoeken een nieuwe woning."
+  },
+  {
+    "nl": "deur",
+    "en": "door",
+    "ru": "дверь",
+    "example": "Ik open de voordeur."
+  },
+  {
+    "nl": "raam",
+    "en": "window",
+    "ru": "окно",
+    "example": "Het raam is open."
+  },
+  {
+    "nl": "muur",
+    "en": "wall",
+    "ru": "стена",
+    "example": "De muur is wit geverfd."
+  },
+  {
+    "nl": "vloer",
+    "en": "floor",
+    "ru": "пол",
+    "example": "De vloer is van hout."
+  },
+  {
+    "nl": "plafond",
+    "en": "ceiling",
+    "ru": "потолок",
+    "example": "Het plafond is hoog."
+  },
+  {
+    "nl": "trap",
+    "en": "stairs",
+    "ru": "лестница",
+    "example": "De trap leidt naar boven."
+  },
+  {
+    "nl": "kamer",
+    "en": "room",
+    "ru": "комната",
+    "example": "Mijn kamer is netjes."
+  },
+  {
+    "nl": "slaapkamer",
+    "en": "bedroom",
+    "ru": "спальня",
+    "example": "Ik slaap in een rustige slaapkamer."
+  },
+  {
+    "nl": "woonkamer",
+    "en": "living room",
+    "ru": "гостиная",
+    "example": "We zitten in de woonkamer."
+  },
+  {
+    "nl": "keuken",
+    "en": "kitchen",
+    "ru": "кухня",
+    "example": "De keuken is modern."
+  },
+  {
+    "nl": "badkamer",
+    "en": "bathroom",
+    "ru": "ванная",
+    "example": "De badkamer heeft een douche."
+  },
+  {
+    "nl": "toilet",
+    "en": "toilet",
+    "ru": "туалет",
+    "example": "Het toilet is schoon."
+  },
+  {
+    "nl": "zolder",
+    "en": "attic",
+    "ru": "чердак",
+    "example": "Er staan dozen op zolder."
+  },
+  {
+    "nl": "kelder",
+    "en": "basement",
+    "ru": "подвал",
+    "example": "De wijn ligt in de kelder."
+  },
+  {
+    "nl": "gang",
+    "en": "hallway",
+    "ru": "коридор",
+    "example": "De gang is smal."
+  },
+  {
+    "nl": "tuin",
+    "en": "garden",
+    "ru": "сад",
+    "example": "Ze werken in de tuin."
+  },
+  {
+    "nl": "garage",
+    "en": "garage",
+    "ru": "гараж",
+    "example": "De auto staat in de garage."
+  },
+  {
+    "nl": "hek",
+    "en": "fence",
+    "ru": "забор",
+    "example": "Er staat een houten hek."
+  },
+  {
+    "nl": "dak",
+    "en": "roof",
+    "ru": "крыша",
+    "example": "Het dak is rood."
+  },
+  {
+    "nl": "schuur",
+    "en": "shed",
+    "ru": "сарай",
+    "example": "Gereedschap ligt in de schuur."
+  },
+  {
+    "nl": "poort",
+    "en": "gate",
+    "ru": "ворота",
+    "example": "De poort is gesloten."
+  },
+  {
+    "nl": "bel",
+    "en": "doorbell",
+    "ru": "звонок",
+    "example": "De bel gaat."
+  },
+  {
+    "nl": "slot",
+    "en": "lock",
+    "ru": "замок",
+    "example": "Het slot is kapot."
+  },
+  {
+    "nl": "sleutel",
+    "en": "key",
+    "ru": "ключ",
+    "example": "Ik heb mijn sleutel vergeten."
+  },
+  {
+    "nl": "gordijn",
+    "en": "curtain",
+    "ru": "занавеска",
+    "example": "De gordijnen zijn blauw."
+  },
+  {
+    "nl": "lamp",
+    "en": "lamp",
+    "ru": "лампа",
+    "example": "Zet de lamp aan."
+  },
+  {
+    "nl": "licht",
+    "en": "light",
+    "ru": "свет",
+    "example": "Het licht is fel."
+  },
+  {
+    "nl": "stoel",
+    "en": "chair",
+    "ru": "стул",
+    "example": "Zit op de stoel."
+  },
+  {
+    "nl": "tafel",
+    "en": "table",
+    "ru": "стол",
+    "example": "De tafel is rond."
+  },
+  {
+    "nl": "bank",
+    "en": "couch",
+    "ru": "диван",
+    "example": "Ik zit op de bank."
+  },
+  {
+    "nl": "kast",
+    "en": "cupboard",
+    "ru": "шкаф",
+    "example": "De kast is vol boeken."
+  },
+  {
+    "nl": "bed",
+    "en": "bed",
+    "ru": "кровать",
+    "example": "Het bed is comfortabel."
+  },
+  {
+    "nl": "matras",
+    "en": "mattress",
+    "ru": "матрас",
+    "example": "Ik heb een zacht matras."
+  },
+  {
+    "nl": "deken",
+    "en": "blanket",
+    "ru": "одеяло",
+    "example": "Gebruik een warme deken."
+  },
+  {
+    "nl": "kussen",
+    "en": "pillow",
+    "ru": "подушка",
+    "example": "Het kussen is zacht."
+  },
+  {
+    "nl": "tapijt",
+    "en": "carpet",
+    "ru": "ковёр",
+    "example": "Het tapijt is rood."
+  },
+  {
+    "nl": "vloerbedekking",
+    "en": "floor covering",
+    "ru": "напольное покрытие",
+    "example": "De vloerbedekking is nieuw."
+  },
+  {
+    "nl": "klok",
+    "en": "clock",
+    "ru": "часы",
+    "example": "De klok tikt luid."
+  },
+  {
+    "nl": "spiegel",
+    "en": "mirror",
+    "ru": "зеркало",
+    "example": "Kijk in de spiegel."
+  },
+  {
+    "nl": "afwasmachine",
+    "en": "dishwasher",
+    "ru": "посудомоечная машина",
+    "example": "De afwasmachine is vol."
+  },
+  {
+    "nl": "koelkast",
+    "en": "fridge",
+    "ru": "холодильник",
+    "example": "De koelkast is leeg."
+  },
+  {
+    "nl": "vriezer",
+    "en": "freezer",
+    "ru": "морозильник",
+    "example": "Er ligt ijs in de vriezer."
+  },
+  {
+    "nl": "oven",
+    "en": "oven",
+    "ru": "духовка",
+    "example": "De oven is heet."
+  },
+  {
+    "nl": "fornuis",
+    "en": "stove",
+    "ru": "плита",
+    "example": "Kook op het fornuis."
+  },
+  {
+    "nl": "gootsteen",
+    "en": "sink",
+    "ru": "раковина",
+    "example": "Spoel af in de gootsteen."
+  },
+  {
+    "nl": "kraan",
+    "en": "tap",
+    "ru": "кран",
+    "example": "De kraan lekt."
+  },
+  {
+    "nl": "emmer",
+    "en": "bucket",
+    "ru": "ведро",
+    "example": "De emmer is vol water."
+  },
+  {
+    "nl": "bezem",
+    "en": "broom",
+    "ru": "метла",
+    "example": "Pak de bezem."
+  },
+  {
+    "nl": "stofzuiger",
+    "en": "vacuum cleaner",
+    "ru": "пылесос",
+    "example": "Gebruik de stofzuiger."
+  },
+  {
+    "nl": "wasmachine",
+    "en": "washing machine",
+    "ru": "стиральная машина",
+    "example": "De wasmachine draait."
+  },
+  {
+    "nl": "droger",
+    "en": "dryer",
+    "ru": "сушилка",
+    "example": "De droger maakt lawaai."
+  },
+  {
+    "nl": "strijkijzer",
+    "en": "iron",
+    "ru": "утюг",
+    "example": "Ik gebruik het strijkijzer."
+  },
+  {
+    "nl": "tv",
+    "en": "television",
+    "ru": "телевизор",
+    "example": "Zet de tv aan."
+  },
+  {
+    "nl": "computer",
+    "en": "computer",
+    "ru": "компьютер",
+    "example": "De computer start op."
+  },
+  {
+    "nl": "printer",
+    "en": "printer",
+    "ru": "принтер",
+    "example": "De printer werkt niet."
+  },
+  {
+    "nl": "plank",
+    "en": "shelf",
+    "ru": "полка",
+    "example": "Boeken staan op de plank."
+  },
+  {
+    "nl": "boekenkast",
+    "en": "bookcase",
+    "ru": "книжный шкаф",
+    "example": "De boekenkast is vol."
+  },
+  {
+    "nl": "foto",
+    "en": "photo",
+    "ru": "фото",
+    "example": "De foto hangt aan de muur."
+  },
+  {
+    "nl": "schilderij",
+    "en": "painting",
+    "ru": "картина",
+    "example": "Een schilderij van een landschap."
+  },
+  {
+    "nl": "plant",
+    "en": "plant",
+    "ru": "растение",
+    "example": "De plant heeft water nodig."
+  },
+  {
+    "nl": "bloem",
+    "en": "flower",
+    "ru": "цветок",
+    "example": "Er staat een bloem in de vaas."
+  },
+  {
+    "nl": "vaas",
+    "en": "vase",
+    "ru": "ваза",
+    "example": "De vaas is van glas."
+  },
+  {
+    "nl": "servies",
+    "en": "dishes",
+    "ru": "посуда",
+    "example": "Het servies is wit."
+  },
+  {
+    "nl": "bord",
+    "en": "plate",
+    "ru": "тарелка",
+    "example": "Zet het bord op tafel."
+  },
+  {
+    "nl": "kom",
+    "en": "bowl",
+    "ru": "миска",
+    "example": "Een kom soep."
+  },
+  {
+    "nl": "beker",
+    "en": "cup",
+    "ru": "кружка",
+    "example": "Drink uit een beker."
+  },
+  {
+    "nl": "glas",
+    "en": "glass",
+    "ru": "стакан",
+    "example": "Een glas water."
+  },
+  {
+    "nl": "bestek",
+    "en": "cutlery",
+    "ru": "столовые приборы",
+    "example": "Pak het bestek."
+  },
+  {
+    "nl": "lepel",
+    "en": "spoon",
+    "ru": "ложка",
+    "example": "Ik gebruik een lepel."
+  },
+  {
+    "nl": "vork",
+    "en": "fork",
+    "ru": "вилка",
+    "example": "De vork ligt rechts."
+  },
+  {
+    "nl": "mes",
+    "en": "knife",
+    "ru": "нож",
+    "example": "Snijd met een mes."
+  },
+  {
+    "nl": "pan",
+    "en": "pan",
+    "ru": "кастрюля",
+    "example": "De pan staat op het vuur."
+  },
+  {
+    "nl": "deksel",
+    "en": "lid",
+    "ru": "крышка",
+    "example": "Zet de deksel op de pan."
+  },
+  {
+    "nl": "handdoek",
+    "en": "towel",
+    "ru": "полотенце",
+    "example": "Droog je af met een handdoek."
+  },
+  {
+    "nl": "zeep",
+    "en": "soap",
+    "ru": "мыло",
+    "example": "Was je handen met zeep."
+  },
+  {
+    "nl": "toiletpapier",
+    "en": "toilet paper",
+    "ru": "туалетная бумага",
+    "example": "Het toiletpapier is op."
+  },
+  {
+    "nl": "shampoo",
+    "en": "shampoo",
+    "ru": "шампунь",
+    "example": "Gebruik milde shampoo."
+  },
+  {
+    "nl": "tandpasta",
+    "en": "toothpaste",
+    "ru": "зубная паста",
+    "example": "De tandpasta is bijna leeg."
+  },
+  {
+    "nl": "tandenborstel",
+    "en": "toothbrush",
+    "ru": "зубная щётка",
+    "example": "Poets met een zachte tandenborstel."
+  },
+  {
+    "nl": "scheerapparaat",
+    "en": "razor",
+    "ru": "бритва",
+    "example": "Hij gebruikt een elektrisch scheerapparaat."
+  },
+  {
+    "nl": "parfum",
+    "en": "perfume",
+    "ru": "духи",
+    "example": "Ze draagt een zoet parfum."
+  },
+  {
+    "nl": "zeepdispenser",
+    "en": "soap dispenser",
+    "ru": "дозатор мыла",
+    "example": "Druk op de zeepdispenser."
+  },
+  {
+    "nl": "lampenkap",
+    "en": "lampshade",
+    "ru": "абажур",
+    "example": "De lampenkap is van stof."
+  }
+]

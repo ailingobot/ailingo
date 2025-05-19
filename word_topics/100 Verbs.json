@@ -1,0 +1,500 @@
+[
+  {
+    "nl": "zijn",
+    "en": "to be",
+    "ru": "быть",
+    "example": "Ik ben moe."
+  },
+  {
+    "nl": "hebben",
+    "en": "to have",
+    "ru": "иметь",
+    "example": "Ik heb een auto."
+  },
+  {
+    "nl": "doen",
+    "en": "to do",
+    "ru": "делать",
+    "example": "Wat doe je?"
+  },
+  {
+    "nl": "gaan",
+    "en": "to go",
+    "ru": "идти",
+    "example": "Wij gaan naar huis."
+  },
+  {
+    "nl": "komen",
+    "en": "to come",
+    "ru": "приходить",
+    "example": "Hij komt morgen."
+  },
+  {
+    "nl": "zien",
+    "en": "to see",
+    "ru": "видеть",
+    "example": "Ik zie de hond."
+  },
+  {
+    "nl": "zeggen",
+    "en": "to say",
+    "ru": "сказать",
+    "example": "Zij zegt hallo."
+  },
+  {
+    "nl": "maken",
+    "en": "to make",
+    "ru": "делать/создавать",
+    "example": "Ik maak een taart."
+  },
+  {
+    "nl": "denken",
+    "en": "to think",
+    "ru": "думать",
+    "example": "Ik denk van wel."
+  },
+  {
+    "nl": "nemen",
+    "en": "to take",
+    "ru": "брать",
+    "example": "Neem jij koffie?"
+  },
+  {
+    "nl": "geven",
+    "en": "to give",
+    "ru": "давать",
+    "example": "Ik geef je een boek."
+  },
+  {
+    "nl": "weten",
+    "en": "to know",
+    "ru": "знать",
+    "example": "Ik weet het niet."
+  },
+  {
+    "nl": "vinden",
+    "en": "to find",
+    "ru": "находить",
+    "example": "Hij vindt het leuk."
+  },
+  {
+    "nl": "blijven",
+    "en": "to stay",
+    "ru": "оставаться",
+    "example": "We blijven thuis."
+  },
+  {
+    "nl": "laten",
+    "en": "to let",
+    "ru": "позволять",
+    "example": "Laat me met rust."
+  },
+  {
+    "nl": "werken",
+    "en": "to work",
+    "ru": "работать",
+    "example": "Ik werk op kantoor."
+  },
+  {
+    "nl": "moeten",
+    "en": "must",
+    "ru": "должен",
+    "example": "Je moet studeren."
+  },
+  {
+    "nl": "willen",
+    "en": "to want",
+    "ru": "хотеть",
+    "example": "Ik wil koffie."
+  },
+  {
+    "nl": "kunnen",
+    "en": "can",
+    "ru": "мочь",
+    "example": "Ik kan zwemmen."
+  },
+  {
+    "nl": "mogen",
+    "en": "may",
+    "ru": "иметь разрешение",
+    "example": "Mag ik iets vragen?"
+  },
+  {
+    "nl": "houden",
+    "en": "to hold / to love",
+    "ru": "держать / любить",
+    "example": "Ik houd van jou."
+  },
+  {
+    "nl": "lopen",
+    "en": "to walk",
+    "ru": "ходить",
+    "example": "Hij loopt naar school."
+  },
+  {
+    "nl": "rijden",
+    "en": "to drive",
+    "ru": "ехать",
+    "example": "Zij rijdt een auto."
+  },
+  {
+    "nl": "lezen",
+    "en": "to read",
+    "ru": "читать",
+    "example": "Ik lees een boek."
+  },
+  {
+    "nl": "schrijven",
+    "en": "to write",
+    "ru": "писать",
+    "example": "Hij schrijft een brief."
+  },
+  {
+    "nl": "spreken",
+    "en": "to speak",
+    "ru": "говорить",
+    "example": "Wij spreken Nederlands."
+  },
+  {
+    "nl": "leren",
+    "en": "to learn",
+    "ru": "учить",
+    "example": "Ik leer elke dag."
+  },
+  {
+    "nl": "slapen",
+    "en": "to sleep",
+    "ru": "спать",
+    "example": "Hij slaapt lang."
+  },
+  {
+    "nl": "eten",
+    "en": "to eat",
+    "ru": "есть",
+    "example": "Wij eten pasta."
+  },
+  {
+    "nl": "drinken",
+    "en": "to drink",
+    "ru": "пить",
+    "example": "Ik drink thee."
+  },
+  {
+    "nl": "begrijpen",
+    "en": "to understand",
+    "ru": "понимать",
+    "example": "Begrijp jij dit?"
+  },
+  {
+    "nl": "beginnen",
+    "en": "to begin",
+    "ru": "начинать",
+    "example": "We beginnen nu."
+  },
+  {
+    "nl": "kijken",
+    "en": "to look/watch",
+    "ru": "смотреть",
+    "example": "Kijk naar mij."
+  },
+  {
+    "nl": "vertellen",
+    "en": "to tell",
+    "ru": "рассказывать",
+    "example": "Vertel een verhaal."
+  },
+  {
+    "nl": "helpen",
+    "en": "to help",
+    "ru": "помогать",
+    "example": "Help je me?"
+  },
+  {
+    "nl": "voelen",
+    "en": "to feel",
+    "ru": "чувствовать",
+    "example": "Ik voel me goed."
+  },
+  {
+    "nl": "brengen",
+    "en": "to bring",
+    "ru": "приносить",
+    "example": "Zij brengt bloemen."
+  },
+  {
+    "nl": "openen",
+    "en": "to open",
+    "ru": "открывать",
+    "example": "Open het raam."
+  },
+  {
+    "nl": "sluiten",
+    "en": "to close",
+    "ru": "закрывать",
+    "example": "Sluit de deur."
+  },
+  {
+    "nl": "koken",
+    "en": "to cook",
+    "ru": "готовить",
+    "example": "Ik kook soep."
+  },
+  {
+    "nl": "wachten",
+    "en": "to wait",
+    "ru": "ждать",
+    "example": "We wachten op hem."
+  },
+  {
+    "nl": "staan",
+    "en": "to stand",
+    "ru": "стоять",
+    "example": "Hij staat daar."
+  },
+  {
+    "nl": "zitten",
+    "en": "to sit",
+    "ru": "сидеть",
+    "example": "Zij zit op de stoel."
+  },
+  {
+    "nl": "leven",
+    "en": "to live",
+    "ru": "жить",
+    "example": "Wij leven samen."
+  },
+  {
+    "nl": "betalen",
+    "en": "to pay",
+    "ru": "платить",
+    "example": "Ik betaal contant."
+  },
+  {
+    "nl": "verkopen",
+    "en": "to sell",
+    "ru": "продавать",
+    "example": "Hij verkoopt zijn fiets."
+  },
+  {
+    "nl": "zoeken",
+    "en": "to search",
+    "ru": "искать",
+    "example": "Ik zoek mijn sleutels."
+  },
+  {
+    "nl": "vinden",
+    "en": "to find",
+    "ru": "находить",
+    "example": "Vind jij dit leuk?"
+  },
+  {
+    "nl": "proberen",
+    "en": "to try",
+    "ru": "пробовать",
+    "example": "Ik probeer het."
+  },
+  {
+    "nl": "gebruiken",
+    "en": "to use",
+    "ru": "использовать",
+    "example": "Gebruik je telefoon."
+  },
+  {
+    "nl": "bezoeken",
+    "en": "to visit",
+    "ru": "посещать",
+    "example": "We bezoeken oma."
+  },
+  {
+    "nl": "verstaan",
+    "en": "to understand (aural)",
+    "ru": "понимать (на слух)",
+    "example": "Versta je me?"
+  },
+  {
+    "nl": "stellen",
+    "en": "to ask/set",
+    "ru": "ставить / задавать",
+    "example": "Hij stelt een vraag."
+  },
+  {
+    "nl": "reizen",
+    "en": "to travel",
+    "ru": "путешествовать",
+    "example": "Ik reis veel."
+  },
+  {
+    "nl": "beginnen",
+    "en": "to begin",
+    "ru": "начинать",
+    "example": "Het begint te regenen."
+  },
+  {
+    "nl": "slagen",
+    "en": "to succeed",
+    "ru": "добиваться успеха",
+    "example": "Hij slaagt voor het examen."
+  },
+  {
+    "nl": "vallen",
+    "en": "to fall",
+    "ru": "падать",
+    "example": "Zij valt van de trap."
+  },
+  {
+    "nl": "sturen",
+    "en": "to send",
+    "ru": "отправлять",
+    "example": "Ik stuur een brief."
+  },
+  {
+    "nl": "kiezen",
+    "en": "to choose",
+    "ru": "выбирать",
+    "example": "Kies jij dit boek?"
+  },
+  {
+    "nl": "groeien",
+    "en": "to grow",
+    "ru": "расти",
+    "example": "De plant groeit snel."
+  },
+  {
+    "nl": "verliezen",
+    "en": "to lose",
+    "ru": "терять",
+    "example": "Ik verlies mijn sleutels."
+  },
+  {
+    "nl": "vergeten",
+    "en": "to forget",
+    "ru": "забывать",
+    "example": "Hij vergeet haar naam."
+  },
+  {
+    "nl": "wassen",
+    "en": "to wash",
+    "ru": "мыть",
+    "example": "Ik was mijn handen."
+  },
+  {
+    "nl": "dromen",
+    "en": "to dream",
+    "ru": "мечтать",
+    "example": "Ik droom van vakantie."
+  },
+  {
+    "nl": "schreeuwen",
+    "en": "to shout",
+    "ru": "кричать",
+    "example": "Ze schreeuwt hard."
+  },
+  {
+    "nl": "winnen",
+    "en": "to win",
+    "ru": "побеждать",
+    "example": "Wij winnen het spel."
+  },
+  {
+    "nl": "stoppen",
+    "en": "to stop",
+    "ru": "останавливаться",
+    "example": "Stop met praten."
+  },
+  {
+    "nl": "bakken",
+    "en": "to bake",
+    "ru": "печь",
+    "example": "Ik bak een taart."
+  },
+  {
+    "nl": "bewegen",
+    "en": "to move",
+    "ru": "двигаться",
+    "example": "Beweeg je lichaam."
+  },
+  {
+    "nl": "zwemmen",
+    "en": "to swim",
+    "ru": "плавать",
+    "example": "Wij zwemmen in de zee."
+  },
+  {
+    "nl": "ringen",
+    "en": "to ring",
+    "ru": "звенеть",
+    "example": "De bel rinkelt."
+  },
+  {
+    "nl": "scheiden",
+    "en": "to separate",
+    "ru": "разделять",
+    "example": "Zij scheiden afval."
+  },
+  {
+    "nl": "verhuizen",
+    "en": "to move (house)",
+    "ru": "переезжать",
+    "example": "Wij verhuizen volgende week."
+  },
+  {
+    "nl": "sluiten",
+    "en": "to close",
+    "ru": "закрывать",
+    "example": "De winkel sluit om zes uur."
+  },
+  {
+    "nl": "zorgen",
+    "en": "to care",
+    "ru": "заботиться",
+    "example": "Ik zorg voor mijn hond."
+  },
+  {
+    "nl": "beantwoorden",
+    "en": "to answer",
+    "ru": "отвечать",
+    "example": "Beantwoord de vraag."
+  },
+  {
+    "nl": "noemen",
+    "en": "to name/call",
+    "ru": "называть",
+    "example": "Hij noemt haar naam."
+  },
+  {
+    "nl": "ontmoeten",
+    "en": "to meet",
+    "ru": "встречать",
+    "example": "We ontmoeten elkaar daar."
+  },
+  {
+    "nl": "veranderen",
+    "en": "to change",
+    "ru": "менять",
+    "example": "Ik verander mijn plannen."
+  },
+  {
+    "nl": "herhalen",
+    "en": "to repeat",
+    "ru": "повторять",
+    "example": "Kun je dat herhalen?"
+  },
+  {
+    "nl": "beloven",
+    "en": "to promise",
+    "ru": "обещать",
+    "example": "Ik beloof het."
+  },
+  {
+    "nl": "geboren worden",
+    "en": "to be born",
+    "ru": "рождаться",
+    "example": "Hij is geboren in mei."
+  },
+  {
+    "nl": "opstaan",
+    "en": "to get up",
+    "ru": "вставать",
+    "example": "Ik sta elke dag om 7 uur op."
+  }
+]
