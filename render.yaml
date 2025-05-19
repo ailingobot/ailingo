@@ -13,5 +13,7 @@ services:
         sync: false
       - key: DB_PATH
         value: /mnt/data/bot.db
-    plan: free
-    autoDeploy: true
+    disk:
+      name: data-disk
+      mountPath: /mnt/data
+      sizeGB: 1
