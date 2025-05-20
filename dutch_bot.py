@@ -15,11 +15,11 @@ from telegram.ext import (
 )
 from gtts import gTTS
 from dotenv import load_dotenv
-from db import init_db, add_user, get_user_count
-
-
-
-
+from db import (
+    init_db, add_user, get_current_user_count,
+    get_new_users_by_day, get_new_users_by_week,
+    get_left_user_count, get_country_statistics
+)
 
 # --- Config ---
 load_dotenv()
@@ -47,7 +47,6 @@ def t(key, context, **kwargs):
 load_locales()
 LANGUAGE_OPTIONS = [(code, LOCALES[code].get("language_label", code)) for code in LOCALES]
 
-
 # --- Word Topics ---
 WORDS_BY_TOPIC = {}
 def load_word_topics(folder="word_topics"):
@@ -58,9 +57,6 @@ def load_word_topics(folder="word_topics"):
                 WORDS_BY_TOPIC[topic] = json.load(f)
 
 load_word_topics()
-
-
-
 
 
 def cleanup_old_mp3(folder="audio", max_age_minutes=30):
@@ -75,10 +71,6 @@ def cleanup_old_mp3(folder="audio", max_age_minutes=30):
                 os.remove(path)
 
 
-
-
-
-
 async def notify_users_after_restart(app):
     from db import get_all_users
     for user_id in get_all_users():
@@ -89,6 +81,32 @@ async def notify_users_after_restart(app):
             )
         except Exception as e:
             logging.warning(f"Could not notify user {user_id}: {e}")
+
+
+# --- Command handler: /users ---
+async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.effective_user.id != ADMIN_ID:
+        await update.message.reply_text("❌ Access denied.")
+        return
+
+    total = get_current_user_count()
+    new_by_day = get_new_users_by_day()
+    new_by_week = get_new_users_by_week()
+    left = get_left_user_count()
+    countries = get_country_statistics()
+
+    message = f"📊 <b>Bot Statistics</b>\n"
+    message += f"👥 Current users: <b>{total}</b>\n"
+    message += f"➕ New today: <b>{new_by_day}</b>\n"
+    message += f"📈 New this week: <b>{new_by_week}</b>\n"
+    message += f"➖ Users left: <b>{left}</b>\n\n"
+
+    if countries:
+        message += "🌍 Users by country:\n"
+        for country, count in countries.items():
+            message += f"  {country}: {count}\n"
+
+    await update.message.reply_text(message, parse_mode="HTML")
 
 
 
