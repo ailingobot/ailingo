@@ -285,14 +285,6 @@ async def feedback(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
-async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if update.effective_user.id != ADMIN_ID:
-        await update.message.reply_text("❌ Access denied.")
-        return
-    count = get_current_users_count()
-    await update.message.reply_text(f"👥 Total users: {count}")
-
-
 
 
 
