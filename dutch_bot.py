@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 from db import (
     init_db, add_user, get_current_user_count,
     get_new_users_by_day, get_new_users_by_week,
-    get_left_user_count, get_country_statistics
+    get_left_users_count, get_country_statistics
 )
 
 # --- Config ---
@@ -92,7 +92,7 @@ async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
     total = get_current_user_count()
     new_by_day = get_new_users_by_day()
     new_by_week = get_new_users_by_week()
-    left = get_left_user_count()
+    left = get_left_users_count()
     countries = get_country_statistics()
 
     message = f"📊 <b>Bot Statistics</b>\n"
