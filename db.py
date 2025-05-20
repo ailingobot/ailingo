@@ -115,9 +115,15 @@ def get_progress(user_id, topic):
     conn.close()
     return row[0] if row else 0
 
-def get_country_statistics(user_id, country):
+def get_country_statistics():
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute("UPDATE users SET country = ? WHERE user_id = ?", (country, user_id))
-    conn.commit()
+    c.execute('''
+        SELECT country, COUNT(*) FROM users
+        WHERE left = 0 AND country IS NOT NULL
+        GROUP BY country
+        ORDER BY COUNT(*) DESC
+    ''')
+    rows = c.fetchall()
     conn.close()
+    return rows
