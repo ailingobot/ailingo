@@ -39,7 +39,7 @@ def mark_user_left(user_id):
     conn.commit()
     conn.close()
 
-def get_active_users_count():
+def get_current_user_count():
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute("SELECT COUNT(*) FROM users WHERE left = 0")
