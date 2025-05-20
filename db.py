@@ -8,19 +8,34 @@ DB_PATH = os.getenv("DB_PATH", "/mnt/data/bot.db")
 def init_db():
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS users (
-        user_id INTEGER PRIMARY KEY,
-        username TEXT,
-        join_date TEXT,
-        left INTEGER DEFAULT 0,
-        country TEXT
-    )''')
+
+    # Создание таблицы с новыми полями, если она ещё не создана
+    c.execute('''
+        CREATE TABLE IF NOT EXISTS users (
+            user_id INTEGER PRIMARY KEY,
+            username TEXT,
+            join_date TEXT,
+            country TEXT,
+            left INTEGER DEFAULT 0
+        )
+    ''')
+
+    # Проверка и добавление недостающих колонок
+    existing_columns = [row[1] for row in c.execute("PRAGMA table_info(users)")]
+    if 'join_date' not in existing_columns:
+        c.execute("ALTER TABLE users ADD COLUMN join_date TEXT")
+    if 'country' not in existing_columns:
+        c.execute("ALTER TABLE users ADD COLUMN country TEXT")
+    if 'left' not in existing_columns:
+        c.execute("ALTER TABLE users ADD COLUMN left INTEGER DEFAULT 0")
+
     c.execute('''CREATE TABLE IF NOT EXISTS progress (
         user_id INTEGER,
         topic TEXT,
         word_index INTEGER,
         PRIMARY KEY (user_id, topic)
     )''')
+
     conn.commit()
     conn.close()
 
