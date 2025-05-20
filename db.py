@@ -100,7 +100,7 @@ def get_progress(user_id, topic):
     conn.close()
     return row[0] if row else 0
 
-def update_user_country(user_id, country):
+def get_country_statistics(user_id, country):
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute("UPDATE users SET country = ? WHERE user_id = ?", (country, user_id))
