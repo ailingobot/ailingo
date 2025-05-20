@@ -16,7 +16,7 @@ from telegram.ext import (
 from gtts import gTTS
 from dotenv import load_dotenv
 from db import (
-    init_db, add_user, get_current_user_count,
+    init_db, add_user, get_current_users_count,
     get_new_users_by_day, get_new_users_by_week,
     get_left_users_count, get_country_statistics
 )
@@ -89,7 +89,7 @@ async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("❌ Access denied.")
         return
 
-    total = get_current_user_count()
+    total = get_current_users_count()
     new_by_day = get_new_users_by_day()
     new_by_week = get_new_users_by_week()
     left = get_left_users_count()
@@ -289,7 +289,7 @@ async def users(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
         await update.message.reply_text("❌ Access denied.")
         return
-    count = get_user_count()
+    count = get_current_users_count()
     await update.message.reply_text(f"👥 Total users: {count}")
 
 
